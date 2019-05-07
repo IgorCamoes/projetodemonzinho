@@ -14,6 +14,35 @@ nav{
     background-color: grey;
 }
 
+nav a{
+    text-decoration: none;
+    color: black;
+
+}
+
+nav a:hover{
+    text-decoration: underline;
+}
+
+nav .pesquisa {
+    width: 300px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav .pesquisa input {
+    font-size: 13pt;
+    width: 250px;
+    height: 30px;
+    border-radius: 15px;
+    border: none;
+    padding-left: 15px;
+}
+
+nav h4:hover{
+    cursor: pointer;
+}
+
 header{
     width: 100%;
     height: 65vh;
@@ -28,7 +57,7 @@ aside{
 
 section{
     width: 70%;
-    height: 130vh ;
+    height: 130vh;
     background-color: aqua;
 }
 
@@ -36,4 +65,41 @@ footer{
     width: 100%;
     height: 30vh;
     background-color: darkslategrey;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+footer div:first-child{
+    width: 40%;
+    height: 30%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+footer div:nth-child(2) {
+    width: 57%;
+    height: 30%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+footer div:nth-child(2) button {
+    background-color: fuchsia;
+    color: white;
+    border: none;
+    width: 120px ;
+    height: 30px ;
+    letter-spacing: 3px;
+    border-radius: 15px;
+}
+
+footer div:last-child {
+    display: flex;
+    width: 100%;
+    height: 70%;
+    justify-content: center;
+    align-items: center;
 }
