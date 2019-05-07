@@ -1,0 +1,9 @@
+.Python
+
+__pycache__
+
+myenv/
+
+.vscode/
+
+db.sqlite3
