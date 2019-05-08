@@ -6,15 +6,18 @@ body{
     background-image: url('https://previews.123rf.com/images/ke77kz/ke77kz1612/ke77kz161200123/69458947-aged-and-yellowed-paper-background-vintage-paper-texture-for-the-design-.jpg');
     background-size: cover;
     background-attachment: fixed;
+    margin-top: 7vh;
 }
 
 nav{
     display: flex;
     width: 100%;
-    height: 10vh;
+    height: 7vh;
     justify-content: space-around;
     align-items: center;
     background-color: grey;
+    position: fixed;
+    top: 0;
 }
 
 nav a{
@@ -53,26 +56,64 @@ header{
 }
 
 aside{
-    width: 30%;
-    height: 65vh;
+    width: 40%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+aside .perfil, aside .index{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: brown;
+    width: 90%;
+    margin-top: 25px;
+    border-radius: 20px 20px 0 0;
 }
 
 section{
-    width: 70%;
+    width: 60%;
     height: 130vh;
+    justify-content: center;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+}
+
+section .perfil, section .index{
+    width: 90%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 25px;
+    border-radius: 20px;
     background-color: aqua;
 }
 
 footer{
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer .footer{
+    border-radius: 0% 0% 20px 20px;
+    width: 90%;
     height: 30vh;
     background-color: darkslategrey;
     display: flex;
     flex-wrap: wrap;
+    margin: 2px 0 5% 0;
 }
 
-footer div:first-child{
+footer .footer div:first-child{
     width: 40%;
     height: 30%;
     display: flex;
@@ -81,7 +122,7 @@ footer div:first-child{
 
 }
 
-footer div:nth-child(2) {
+footer .footer div:nth-child(2) {
     width: 57%;
     height: 30%;
     display: flex;
@@ -89,7 +130,7 @@ footer div:nth-child(2) {
     align-items: flex-end;
 }
 
-footer div:nth-child(2) button {
+footer .footer div:nth-child(2) button {
     background-color: fuchsia;
     color: white;
     border: none;
@@ -99,7 +140,7 @@ footer div:nth-child(2) button {
     border-radius: 15px;
 }
 
-footer div:last-child {
+footer .footer div:last-child {
     display: flex;
     width: 100%;
     height: 70%;
@@ -130,53 +171,55 @@ header .index{
     flex-wrap: wrap;
 }
 
-header .perfil{
+
+aside .perfil div:first-child{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
-header .perfil div:first-child{
-    width: 30%;
-    height: 70%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-header .perfil div:first-child div{
-    width: 175px;
+aside .perfil div:first-child div{
+    width: 100px;
     height: 175px;
     border-radius: 100%;
 }
 
-header .perfil div:first-child div img{
+aside .perfil div:first-child div img{
     width: 150px;
     height: 150px;
+
 }
 
-header .perfil div:last-child{
+aside .perfil div:last-child{
     width: 70%;
     height: 70%;
 }
 
-header .perfil div:last-child div:first-child{
+aside .perfil div:last-child div:first-child{
     width: 100%;
     height: 15%;
     justify-content: flex-start;
     align-items: center;
 }
 
-header .perfil div:last-child div:first-child h3{
+aside .perfil div:last-child div:first-child h3{
     font-size: 32pt;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin-top: 5%;
+    margin: 5% 0;
 }
 
-header .perfil div:last-child div:nth-child(2){
+aside .perfil div:last-child div:nth-child(2){
     width: 100%;
-    height: 20%;
+    margin-bottom: 15%;
 }
 
-header .perfil div:last-child div:last-child p{
+aside .perfil div:last-child div:last-child{
+    width: 100%;
+}
+
+aside .perfil div:last-child div:last-child p{
     text-align: center;
     font-style: italic;
     color: darkslategrey;
