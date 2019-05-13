@@ -36,7 +36,7 @@ nav .pesquisa {
     justify-content: flex-end;
 }
 
-nav .pesquisa input {
+nav .pesquisa input{
     font-size: 13pt;
     width: 250px;
     height: 30px;
@@ -63,7 +63,7 @@ aside{
     flex-direction: column;
 }
 
-aside .perfil, aside .index{
+aside .perfil, aside .index, aside .paginaJogos{
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -84,7 +84,7 @@ section{
     flex-direction: column;
 }
 
-section .perfil, section .index{
+section .perfil, section .index, section .paginaJogos{
     width: 90%;
     align-items: center;
     display: flex;
@@ -150,7 +150,7 @@ footer .footer div:last-child {
 
 /* ======== INDEX ======== */
 
-.index{
+.index, .paginaJogos{
     width: 100%;
     height: 100%;
     display: flex;
@@ -223,4 +223,77 @@ aside .perfil div:last-child div:last-child p{
     text-align: center;
     font-style: italic;
     color: darkslategrey;
+}
+
+/* ======== CADASTRO LOGIN ======== */
+
+article {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+article > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 100%;
+}
+
+.login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #ecf0f1;
+    width: 50%;
+    height: 50%;
+}
+
+.login h4, .cadastro h4{
+    font-weight: 200;
+    font-variant: small-caps;
+    text-transform: uppercase;
+    font-size: 22pt;
+    margin: 0;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+.login input, .cadastro input{
+    text-align: center;
+    width: 150px;
+    height: 40px;
+    border-radius: 15px;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid #8e44ad;
+    transition: 0.45s;
+}
+
+.login input[type = 'text']:focus, .login input[type = 'password']:focus, .cadastro input[type = 'text']:focus, .cadastro input[type = 'password']:focus{
+    width: 200px;
+    border-color: black;
+}
+
+.login input[type='submit']:hover, .login input[type='button']:hover, .cadastro input[type='submit']:hover, .cadastro input[type='button']:hover {
+    cursor: pointer;
+    background-color: #311B92;
+    color: white;
+}
+
+.cadastro{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #ecf0f1;
+    width: 50%;
+    height: 50%;
+}
+
+.ligou{
+    display:none;
 }

@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<article>
+    <div>
+        <div class="login">
+            <h4>Login</h4>
+            <input type="text" name="usuario" placeholder="Usuário">
+            <input type="password" name="senha" placeholder="Senha">
+            <input type="submit" value="Entrar">
+            <input type="button" value="Cadastrar-se">
+        </div>
+
+        <div class="cadastro">
+            <h4>cadastro</h4>
+            <input type="text" name="usuario" placeholder="Usuário">
+            <input type="password" name="senha" placeholder="Senha">
+            <input type="password" name="senha2" placeholder="Confirme sua senha">
+            <input type="button" value="Cadastrar-se">
+        </div>
+    </div>
+</article>
+
+{% endblock %}

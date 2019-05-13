@@ -20,5 +20,7 @@ from demonday import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
-    path('user/username', views.perfil)
+    path('user/username', views.perfil),
+    path('jogos/', views.paginaJogos),
+    path('login/', views.lcpagina),
 ]
