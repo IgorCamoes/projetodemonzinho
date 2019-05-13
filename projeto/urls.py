@@ -23,4 +23,5 @@ urlpatterns = [
     path('user/username', views.perfil),
     path('jogos/', views.paginaJogos),
     path('login/', views.lcpagina),
+    path('feed/', views.feed),
 ]

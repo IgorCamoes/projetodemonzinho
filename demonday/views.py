@@ -8,6 +8,9 @@ def index(request):
 def perfil(request):
     return render(request, 'perfil.html')
     
+def feed(request):
+    return render(request, 'feed.html')
+    
 def paginaJogos(request):
     return render(request, 'jogos.html')
 
