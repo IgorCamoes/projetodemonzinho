@@ -3,7 +3,7 @@ body{
     flex-wrap: wrap;
     margin: 0%;
     background-color: antiquewhite;
-    background-image: url('https://previews.123rf.com/images/ke77kz/ke77kz1612/ke77kz161200123/69458947-aged-and-yellowed-paper-background-vintage-paper-texture-for-the-design-.jpg');
+    background-image: url('../Images/output-onlinejpgtools.jpg');
     background-size: cover;
     background-attachment: fixed;
     margin-top: 7vh;
@@ -58,53 +58,53 @@ header{
 aside{
     width: 40%;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     display: flex;
     flex-direction: column;
 }
 
-aside .perfil, aside .index{
+aside .perfil, aside .index, aside .feed{
     align-items: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    background-color: brown;
+    background-color: rgb(97, 97, 97);
     width: 90%;
-    margin-top: 25px;
-    border-radius: 20px 20px 0 0;
+    margin-top: 20px;
+    border-radius: 10px 10px 0 0;
 }
 
 section{
     width: 60%;
-    height: 130vh;
+    min-height: 100vh;
     justify-content: center;
     align-items: flex-start;
     display: flex;
     flex-direction: column;
 }
 
-section .perfil, section .index{
+section .perfil, section .index, section .feed{
     width: 90%;
     align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 25px;
-    border-radius: 20px;
-    background-color: aqua;
+    margin: 20px 0 20px 20px;
+    border-radius: 10px;
+    background-color: rgb(201, 201, 201);
 }
 
 footer{
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
 }
 
 footer .footer{
-    border-radius: 0% 0% 20px 20px;
+    border-radius: 0% 0% 10px 10px;
     width: 90%;
     height: 30vh;
     background-color: darkslategrey;
@@ -223,4 +223,129 @@ aside .perfil div:last-child div:last-child p{
     text-align: center;
     font-style: italic;
     color: darkslategrey;
+}
+
+/* ======== FEED ======== */
+
+.feed{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+aside .feed .top{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5%;
+}
+
+aside .feed .top .userInfo{
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 60%;
+}
+
+aside .feed .top .userInfo .userImage{
+    border-radius: 100%;
+    height: 100px;
+    width: 100px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+aside .feed .top .userInfo .userImage img{
+    height: 100px;
+}    
+
+aside .feed .top .userInfo h3{
+    font-size: 18pt;
+    margin: 0;
+}
+
+aside .feed .top .userInfo h4{
+    font-size: 13pt;
+    margin: 10px 0 30px 0;
+}
+
+aside .feed .top .newPostButtonArea{
+    align-items: center;
+    display: flex;
+    height: 90%;
+    justify-content: flex-end;
+    width: 40%;
+}
+
+aside .feed .top .newPostButtonArea .newPostButton{
+    align-items: center;
+    background-color: rgb(189, 189, 189);
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(82, 82, 82);
+    border-radius: 100%;
+    cursor: pointer;
+    display: flex;
+    height: 60px;
+    justify-content: center;
+    padding: 0;
+    width: 60px;
+}
+
+aside .feed .top .newPostButtonArea .newPostButton span{
+    background-color: rgb(75, 75, 75);
+    border-radius: 3px;
+    height: 3px;
+    width: 90%;
+}
+
+aside .feed .top .newPostButtonArea .newPostButton .spanVertical{
+    transform: translateX(50%) rotate(90deg);
+    transition: .50s;
+    opacity: 1;
+    z-index: 10;
+}
+
+aside .feed .top .newPostButtonArea .newPostButton .spanHorizontal{
+    transform: translateX(-50%);
+}
+
+/* Ao clicar em novo post */
+
+aside .feed .top .newPostButtonArea .newPostButton .verticalDesce{
+    transform: translateX(50%) translateY(30px) rotate(90deg);
+    transition: .50s;
+    opacity: 0;
+    z-index: -1;
+}
+
+aside .feed .top .newPostButtonArea .newPostButton:hover{
+    background-color: rgb(153, 153, 153);
+}
+
+aside .feed .newPost{ 
+    opacity: 0;
+    overflow: hidden;
+    padding: 0 5% 5% 5%;
+    transform: translateY(-50px);
+    transition: .50s;
+    width: 90%;
+    z-index: -10;
+
+}
+
+aside .feed .activeNewPost{
+    display:flex;
+    min-height: 100px;
+    opacity: 1;
+    overflow: auto;
+    transform: translateY(0);
+    transition: .50s;
+    z-index: 10;
 }
