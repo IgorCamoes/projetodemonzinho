@@ -14,9 +14,11 @@ def feed(request):
     
 def paginaJogos(request):
     jogo = Jogos.objects.all()
+    plataforma = Plataformas.objects.all()
 
     contexto = {
-        'jogos' : jogo
+        'jogos' : jogo,
+        'plataforma' : plataforma
     }
     return render(request, 'jogos.html', contexto)
 
