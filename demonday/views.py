@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from demonday.models import Jogos, Plataformas
 
 # Create your views here.
 
@@ -12,7 +13,12 @@ def feed(request):
     return render(request, 'feed.html')
     
 def paginaJogos(request):
-    return render(request, 'jogos.html')
+    jogo = Jogos.objects.all()
+
+    contexto = {
+        'jogos' : jogo
+    }
+    return render(request, 'jogos.html', contexto)
 
 def lcpagina(request):
     return render(request, 'logincadastro.html')

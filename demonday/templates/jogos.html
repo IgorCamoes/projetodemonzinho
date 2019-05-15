@@ -5,7 +5,16 @@
 {% block content %}
 <aside>
     <div class="paginaJogos">
-        <div></div>
+        <div>
+            {% for jogo in jogos %}
+            <div>
+                <div><img src="{{ jogos.capa.url }}" alt=""></div>
+                <div>
+                    <h4>{{ jogos.titulo }}</h4>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
     </div>
     {% include 'footer.html' %}
 </aside>
@@ -13,9 +22,6 @@
 <section>
     <div class="paginaJogos">
         <div>
-            <div></div>
-            <div></div>
-            <div></div>
         </div>        
     </div>
 </section>
