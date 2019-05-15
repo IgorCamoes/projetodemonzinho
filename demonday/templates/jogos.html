@@ -6,12 +6,9 @@
 <aside>
     <div class="paginaJogos">
         <div>
-            {% for jogo in jogos %}
+            {% for jogos in jogos %}
             <div>
                 <div><img src="{{ jogos.capa.url }}" alt=""></div>
-                <div>
-                    <h4>{{ jogos.titulo }}</h4>
-                </div>
             </div>
             {% endfor %}
         </div>

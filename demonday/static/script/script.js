@@ -33,6 +33,7 @@ function openTab(evt, tabName) {
 }
 
 document.querySelector('#defaultOpen').click();
+<<<<<<< HEAD
 
 // Atalhos da NavBar
 
@@ -48,3 +49,5 @@ function atalhosAparecem (){
 }
 
 atalhoButton.onclick = atalhosAparecem;
+=======
+>>>>>>> 0283d37970544a6e0bf7416392236f2c08fa452e

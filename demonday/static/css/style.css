@@ -1,3 +1,25 @@
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar-track
+{
+	--webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+}
+
+
 body{
     display: flex;
     flex-wrap: wrap;
@@ -27,8 +49,12 @@ nav{
 
 nav a{
     text-decoration: none;
+<<<<<<< HEAD
     color: rgb(204, 204, 204);
 
+=======
+    color: black;
+>>>>>>> 0283d37970544a6e0bf7416392236f2c08fa452e
 }
 
 nav a:hover{
@@ -161,14 +187,13 @@ nav span{
 header{
     width: 100%;
     height: 65vh;
-
 }
 
 /* Padrões do aside e section */
 
 aside{
     width: 40%;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-end;
     display: flex;
     flex-direction: column;
@@ -232,7 +257,7 @@ footer .footer div:first-child{
     display: flex;
     justify-content: space-around;
     align-items: center;
-
+    
 }
 
 footer .footer div:nth-child(2) {
@@ -338,7 +363,7 @@ aside .perfil div:first-child div{
 aside .perfil div:first-child div img{
     width: 150px;
     height: 150px;
-
+    
 }
 
 aside .perfil div:last-child{
@@ -399,7 +424,8 @@ article > div{
     justify-content: space-around;
     background-color: #ecf0f1;
     width: 50%;
-    height: 50%;
+    height: 60%;
+    border-radius: 50px;
 }
 
 .login h4, .cadastro h4{
@@ -440,7 +466,7 @@ article > div{
     justify-content: space-around;
     background-color: #ecf0f1;
     width: 50%;
-    height: 50%;
+    height: 60%;
 }
 
 .ligou{
@@ -449,6 +475,45 @@ article > div{
 
 /* ======== JOGOS ======== */
 
+.paginaJogos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+aside .paginaJogos{
+    height:250px;
+    overflow: auto;
+}
+
+aside .paginaJogos > div{
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: space-evenly;
+    margin: 50px 0;
+    overflow-y:auto;
+}
+aside .paginaJogos div > div{
+    width: 150px;
+}
+aside .paginaJogos div > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+aside .paginaJogos div div div:first-child{
+    border-radius: 25px;
+    overflow: hidden;
+    width: 100px;
+}
+
+aside .paginaJogos div div div:first-child img{
+    width: 100px;
+    height: 150px;
+}
 
 /* ======== FEED ======== */
 
@@ -579,6 +644,16 @@ aside .feed .topGameList .tituloTopGameList{
     font-weight: 600;
     width: 90%;
 
+/* Abas da Section */
+
+section .feed #navTabArea{
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 7vh;
+    width: 100%;
 }
 
 /* Abas da Section */
