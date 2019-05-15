@@ -49,12 +49,8 @@ nav{
 
 nav a{
     text-decoration: none;
-<<<<<<< HEAD
     color: rgb(204, 204, 204);
 
-=======
-    color: black;
->>>>>>> 0283d37970544a6e0bf7416392236f2c08fa452e
 }
 
 nav a:hover{
@@ -643,6 +639,7 @@ aside .feed .topGameList .tituloTopGameList{
     font-size: 14pt;
     font-weight: 600;
     width: 90%;
+}
 
 /* Abas da Section */
 
