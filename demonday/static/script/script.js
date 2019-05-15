@@ -33,3 +33,18 @@ function openTab(evt, tabName) {
 }
 
 document.querySelector('#defaultOpen').click();
+
+// Atalhos da NavBar
+
+let atalhoButton = document.querySelector('#atalhoButton');
+
+function atalhosAparecem (){
+    let atalhos = document.querySelector('#atalhos');
+    if (atalhos.style.maxHeight){
+        atalhos.style.maxHeight = null;
+    } else {
+        atalhos.style.maxHeight = atalhos.scrollHeight + 'px';
+    }
+}
+
+atalhoButton.onclick = atalhosAparecem;
