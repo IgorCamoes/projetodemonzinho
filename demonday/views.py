@@ -24,3 +24,4 @@ def paginaJogos(request):
 
 def lcpagina(request):
     return render(request, 'logincadastro.html')
+

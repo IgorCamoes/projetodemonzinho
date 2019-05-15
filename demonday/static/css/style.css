@@ -4,7 +4,7 @@ html {
 }
 ::-webkit-scrollbar-track
 {
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	--webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	background-color: #F5F5F5;
 }
 
@@ -23,6 +23,7 @@ html {
 body{
     display: flex;
     flex-wrap: wrap;
+    font-family: 'Rajdhani', sans-serif;
     margin: 0%;
     background-color: antiquewhite;
     background-image: url('../Images/output-onlinejpgtools.jpg');
@@ -40,6 +41,7 @@ nav{
     background-color: grey;
     position: fixed;
     top: 0;
+    z-index: 1000;
 }
 
 nav a{
@@ -109,7 +111,7 @@ section .perfil, section .index, section .feed, section .paginaJogos{
     align-items: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     margin: 20px 0 20px 20px;
     border-radius: 10px;
@@ -170,6 +172,8 @@ footer .footer div:last-child {
 
 /* ======== INDEX ======== */
 
+
+
 .index, .paginaJogos{
     width: 100%;
     height: 100%;
@@ -180,6 +184,40 @@ footer .footer div:last-child {
 header .index{
     background-image: url('https://images.unsplash.com/photo-1533613220915-609f661a6fe1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80');
     background-size: cover;
+}
+
+.sIndexCont{
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+
+.sIndexCont p{
+    color: #311B92;
+}
+
+aside .index{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.aIndexCont {
+    display: flex;
+    width: 90%;
+    height: 90%;
+    background-color: magenta;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.topjogoIndex {
+    width: 25px;
+    height: 59px;
+    background-color: aqua;
 }
 
 /* ======== PERFIL ======== */
@@ -370,6 +408,8 @@ aside .paginaJogos div div div:first-child img{
     flex-wrap: wrap;
 }
 
+/* Informações do usuario e area de novo  */
+
 aside .feed .top{
     width: 90%;
     display: flex;
@@ -407,7 +447,8 @@ aside .feed .top .userInfo h3{
 }
 
 aside .feed .top .userInfo h4{
-    font-size: 13pt;
+    font-size: 14pt;
+    font-weight: 500;
     margin: 10px 0 30px 0;
 }
 
@@ -452,8 +493,6 @@ aside .feed .top .newPostButtonArea .newPostButton .spanHorizontal{
     transform: translateX(-50%);
 }
 
-/* Ao clicar em novo post */
-
 aside .feed .top .newPostButtonArea .newPostButton .verticalDesce{
     transform: translateX(50%) translateY(30px) rotate(90deg);
     transition: .50s;
@@ -461,27 +500,78 @@ aside .feed .top .newPostButtonArea .newPostButton .verticalDesce{
     z-index: -1;
 }
 
-aside .feed .top .newPostButtonArea .newPostButton:hover{
+aside .feed .top .newPostButtonArea .active, aside .feed .top .newPostButtonArea .newPostButton:hover{
     background-color: rgb(153, 153, 153);
 }
 
 aside .feed .newPost{ 
-    opacity: 0;
+    max-height: 0px;
     overflow: hidden;
-    padding: 0 5% 5% 5%;
-    transform: translateY(-50px);
-    transition: .50s;
+    padding: 0 5% 0 5%;
+    transition: max-height 0.5s ease-out;
+    width: 90%;
+}
+
+/* Lista de top jogos */
+
+aside .feed .topGameList{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+aside .feed .topGameList .tituloTopGameList{
+    border-top: 1px solid black;
+    font-size: 14pt;
+    font-weight: 600;
     width: 90%;
     z-index: -10;
     
 }
 
-aside .feed .activeNewPost{
-    display:flex;
-    min-height: 100px;
-    opacity: 1;
-    overflow: auto;
-    transform: translateY(0);
-    transition: .50s;
-    z-index: 10;
+/* Abas da Section */
+
+section .feed #navTabArea{
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 7vh;
+    width: 100%;
+}
+
+section .feed #navTabArea #navTab{
+    align-items: center;
+    background-color: rgb(59, 59, 59);
+    border-radius: 0 0 10px 0;
+    display: flex;
+    justify-content: space-evenly;
+    width: 30%;
+}
+
+section .feed #navTabArea #navTab .tab{
+    background-color: rgb(59, 59, 59);
+    border: none;
+    color: rgb(226, 226, 226);
+    cursor: pointer;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 14pt;
+    outline: none;
+}
+
+section .feed #navTabArea #navTab .divisoriaTab{
+    background-color: rgb(153, 153, 153);
+    height: 10pt;
+    width: 1px;
+}
+
+section .feed #navTabArea #navTab button.active{
+    color: red;
+}
+
+section .feed .tabContent{
+    display: none;
 }

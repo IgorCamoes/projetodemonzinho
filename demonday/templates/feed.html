@@ -25,10 +25,19 @@
             </div>
         </div>
         <div class="newPost">
-            <p>Formulario</p> 
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis quam voluptas totam quos optio, maiores consequatur iusto deserunt vero reprehenderit atque, distinctio quo deleniti. Alias sunt placeat laborum sed nam!</p> 
         </div>
-        <div>
-            Lista de Jogos em alta
+        <div class='topGameList'>
+            <div class="tituloTopGameList">
+                <p>Jogos mais procurados:</p>
+            </div>
+            <div class="contentGameList">
+                <p>Jogo1</p>
+                <p>Jogo2</p>
+                <p>Jogo3</p>
+                <P>Jogo4</P>
+                <p>Jogo5</p>
+            </div>
         </div>
     </div>
     {% include "footer.html" %}
@@ -36,14 +45,24 @@
 
 <section>
     <div class="feed">
-        <div class="matchPosts">
-
+        <div id="navTabArea">
+            <div id="navTab">
+                <button class="tab" onclick="openTab(event, 'tabAllPosts')">Todos</button>
+                <span class="divisoriaTab"></span>
+                <button class="tab" onclick="openTab(event, 'tabMatchPosts')" id="defaultOpen">Posts</button>
+                <span class="divisoriaTab"></span>
+                <button class="tab" onclick="openTab(event, 'tabMatchProfiles')">Perfis</button>
+            </div>
         </div>
-        <div class="allPosts">
-            
+        
+        <div class="tabContent" id="tabAllPosts">
+            Todos
         </div>
-        <div class="matchProfile">
-
+        <div class="tabContent" id="tabMatchPosts">
+            Posts
+        </div>
+        <div class="tabContent" id="tabMatchProfiles">
+            Perfis
         </div>
     </div>
 </section>
