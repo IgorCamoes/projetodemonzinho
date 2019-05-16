@@ -1,1 +1,1 @@
-web: gunicorn demon-day.wsgi
+web: gunicorn demonday.wsgi
