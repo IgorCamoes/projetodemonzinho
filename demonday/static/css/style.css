@@ -511,6 +511,12 @@ aside .paginaJogos div div div:first-child img{
     height: 150px;
 }
 
+aside .paginaJogos div div div:first-child:hover{
+    filter: blur(1px);
+    cursor: pointer;
+}
+
+
 /* ======== FEED ======== */
 
 .feed{

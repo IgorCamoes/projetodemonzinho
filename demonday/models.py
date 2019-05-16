@@ -45,6 +45,9 @@ class DiasDisponiveis(models.Model):
     ]
 
     dispDia = models.CharField(max_length=2, choices=diasOptions)
+    
+    def __str__(self):
+        return self.dispDia
 
 class Usuario(models.Model):
     jogos = models.ManyToManyField(Jogos)

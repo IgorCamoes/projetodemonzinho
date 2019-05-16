@@ -4,48 +4,41 @@
 {% block content %}
 
 <header>
-<div class="index"></div>
+    <div class="index"></div>
 </header>
 
 <aside>
-<div class="index">
-
-    <div class="aIndexCont">
-
-    <div class="topjogoIndex">
-
+    <div class="index">
+        
+        <div class="aIndexCont">
+            {% for jogos in jogos %}
+            <div>
+                <div><img src="{{ jogos.capa.url }}" alt=""></div>
+            </div>
+            {% endfor %}
+        </div>
+        
     </div>
-
-    <div class="topjogoIndex">
-
-    </div>
-
-    <div class="topjogoIndex">
-
-    </div>
-    </div>
-
-</div>
-{% include "footer.html" %}
+    {% include "footer.html" %}
 </aside>
 
 
 <section>
-<div class="index">
-    <div class="sIndexCont">
-        <p>.</p>
-        <p>.</p>
-        <p>.<div class=""></div></p>
+    <div class="index">
+        <div class="sIndexCont">
+            <p>.</p>
+            <p>.</p>
+            <p>.<div class=""></div></p>
+        </div>
     </div>
-</div>
-
-<div class="postsIndex">
-
-
     
-</div>
-
-
+    <div class="postsIndex">
+        
+        
+        
+    </div>
+    
+    
 </section>
 
 {% endblock %}
