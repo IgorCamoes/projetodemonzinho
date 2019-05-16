@@ -1,5 +1,4 @@
 from django.db import models
-
 # Create your models here.
 
 class Plataformas(models.Model):
@@ -21,8 +20,33 @@ class Plataformas(models.Model):
 
 class Jogos(models.Model):
     titulo = models.CharField(max_length=100)
-    capa = models.ImageField(upload_to='', null=True)
+    capa = models.ImageField(upload_to='capaJogos/', null=True)
     plataforma = models.ManyToManyField(Plataformas)
 
     def __str__(self):
         return self.titulo
+
+class UsrIcon(models.Model):
+    nome = models.CharField(max_length=5)
+    iconOptions = models.ImageField(upload_to='iconesUsr/')
+
+    def __str__(self):
+        return self.nome
+
+class DiasDisponiveis(models.Model):
+    diasOptions = [
+        ('se', 'Segunda-feiras'),
+        ('te', 'Terça-feiras'),
+        ('qa', 'Quarta-feiras'),
+        ('qi', 'Quinta-feiras'),
+        ('sx', 'Sexta-feiras'),
+        ('sa', 'Sábados'),
+        ('dm', 'Domingos')
+    ]
+
+    dispDia = models.CharField(max_length=2, choices=diasOptions)
+
+class Usuario(models.Model):
+    jogos = models.ManyToManyField(Jogos)
+    dispDia = models.ManyToManyField(DiasDisponiveis)
+    icon = models.ForeignKey(UsrIcon, on_delete=models.CASCADE)

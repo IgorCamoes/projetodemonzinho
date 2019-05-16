@@ -1,7 +1,9 @@
 from django.contrib import admin
-from demonday.models import Jogos, Plataformas
+from demonday.models import Jogos, Plataformas, UsrIcon, Usuario
 
 # Register your models here.
 
 admin.site.register(Jogos)
 admin.site.register(Plataformas)
+admin.site.register(UsrIcon)
+admin.site.register(Usuario)

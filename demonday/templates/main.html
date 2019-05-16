@@ -29,9 +29,9 @@
                     <img src="../static/Images/sort-down.png" alt="Mostrar mais.">
                 </button>
                 <div id="atalhos">
-                    <a href="jogos/" id="botaoJogos">Jogos</a>
+                    <a href="{% url 'jogos' %}" id="botaoJogos">Jogos</a>
                     <span></span>
-                    <a href="" id="botaoFeed">Feed</a>
+                    <a href="{% url 'feed' %}" id="botaoFeed">Feed</a>
                     <span></span>
                     <a href="" id="botaoPerfil">Perfil</a>
                 </div>
@@ -42,7 +42,7 @@
             <div id="loginButtonArea">
                 <a href="cadatre" id="botaoCadastro">Cadastre-se</a>
                 <span></span>
-                <a href="login/" id="botaoLogin">Login</a>
+                <a href="{% url 'login' %}" id="botaoLogin">Login</a>
             </div>
         </div>
     </nav>
