@@ -1,1 +1,1 @@
-web: gunicorn demonday.wsgi
+web: gunicorn projeto.wsgi
