@@ -34,6 +34,11 @@ function openTab(evt, tabName) {
 
 document.querySelector('#defaultOpen').click();
 
+
+// NavBar condições
+
+let 
+
 // Atalhos da NavBar
 
 let atalhoButton = document.querySelector('#atalhoButton');
@@ -66,8 +71,6 @@ function capasJgHover(){
 function ALERTA(){
     alert('socorro')
 }
-
-
 
 for(i=0; i<capasPgJgs.length; i++){
     capasPgJgs[i].onclick = capasJgHover();
