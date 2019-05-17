@@ -12,13 +12,22 @@
             <input type="submit" value="Entrar">
             <input type="button" value="Cadastrar-se">
         </div>
-
+        
         <div class="cadastro">
-            <h4>cadastro</h4>
-            <input type="text" name="usuario" placeholder="Usuário">
-            <input type="password" name="senha" placeholder="Senha">
-            <input type="password" name="senha2" placeholder="Confirme sua senha">
-            <input type="button" value="Cadastrar-se">
+            <div class="cadascont">
+                <h4>cadastro</h4>
+                {% if msg %}
+                {% for msgs in msg %}
+                <p>CONTA CRIADA COM SUCESSO</p>
+                {% endfor %}
+                {% endif %}
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form1.as_p }}
+                    {{ form2.as_p }}
+                    <input type="submit" value="Cadastrar-se">
+                </form>
+            </div>
         </div>
     </div>
 </article>

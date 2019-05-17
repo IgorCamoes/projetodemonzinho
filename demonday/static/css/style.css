@@ -494,12 +494,18 @@ article > div{
 
 .cadastro{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     background-color: #ecf0f1;
     width: 50%;
-    height: 60%;
+    height: 80%;
+    overflow: scroll;
+}
+
+.cadascont{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .ligou{

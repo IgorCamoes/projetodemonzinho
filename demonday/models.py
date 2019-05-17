@@ -53,16 +53,11 @@ class DiasDisponiveis(models.Model):
 
 class Perfil(models.Model):
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
+    nomeR = models.CharField(max_length=40, blank=True)
     jogos = models.ManyToManyField(Jogos)
     dispDia = models.ManyToManyField(DiasDisponiveis)
     icon = models.ForeignKey(UsrIcon, on_delete=models.CASCADE)
     bio = models.TextField(max_length=300)
 
-@receiver(post_save, sender=User)
-def criarperfilusuario(sender, intancia, criado, **kwargs):
-    if criado:
-        Perfil.objects.create(usuario=intancia)
-
-@receiver(post_save, sender=User)
-def salvarperfilusuario(sender, instancia, **kwargs):
-    instancia.profile.save()
+    def __str__(self):
+        return self.usuario.username
