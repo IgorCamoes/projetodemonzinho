@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from demonday.models import Jogos, Plataformas, Perfil
 from demonday.forms import UsrPerfil, UsrRegistro
+from django.contrib.auth import authenticate
 
 # Create your views here.
 
@@ -25,20 +26,35 @@ def paginaJogos(request):
     return render(request, 'jogos.html', contexto)
 
 def lcpagina(request):
-    if request.method == 'POST' or None:
-        # formUser = UsrRegistro(request.POST)
-        # formPerfil = UsrPerfil(request.POST)
-        if formUser.is_valid() and formPerfil.is_valid:
-            formUser.save()
-            formPerfil.save()
-            pessoa = formUser.cleaned_data.get('usuario')
-            messages.success(request, f'Conta criada com sucesso, {pessoa}')
-            return redirect('login')
+    formUser = UsrRegistro(request.POST or None)
+    formPerfil = UsrPerfil(request.POST or None)
 
-    # contexto={
-    #     'form1':formUser,
-    #     'form2':formPerfil
-    # }
+    if request.method == 'POST':
+        formUser = UsrRegistro(request.POST)
+        formPerfil = UsrPerfil(request.POST)   
+        
+        if formUser.is_valid() and formPerfil.is_valid():
+            usuario = formUser.save()
+            perfil = formPerfil.save(commit=False)
+            perfil.usuario = usuario
 
-    return render(request, 'logincadastro.html')
+            perfil.save()
+
+
+
+            username = formUser.cleaned_data.get('username')
+            senha = formUser.cleaned_data.get('password1')
+            usuario = authenticate(username=username, password=senha)
+            return redirect('home')
+        
+        else:
+            formUser = UsrRegistro()
+            formPerfil = UsrPerfil()
+
+    contexto={
+        'form1':formUser,
+        'form2':formPerfil
+    }
+
+    return render(request, 'logincadastro.html', contexto)
 

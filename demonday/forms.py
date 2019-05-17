@@ -11,4 +11,14 @@ class UsrRegistro(UserCreationForm):
 class UsrPerfil(forms.ModelForm):
     class Meta:
         model = Perfil
-        fields = ['jogos', 'dispDia', 'icon', 'bio']
+        fields = ['nomeR', 'jogos', 'dispDia', 'icon', 'bio']
+
+    def save(self, commit=True):
+        usuario = super().save(commit=False)
+
+        usuario.nomeR = self.cleaned_data['nomeR']
+        usuario.bio = self.cleaned_data['bio']
+
+        if commit:
+            usuario.save()
+        return usuario
