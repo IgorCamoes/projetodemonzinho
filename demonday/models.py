@@ -1,5 +1,7 @@
 from django.db import models
-# Create your models here.
+from django.contrib.auth.models import User
+from django.dispatch import receiver
+from django.db.models.signals import post_save
 
 class Plataformas(models.Model):
     platOptions = [
@@ -49,7 +51,18 @@ class DiasDisponiveis(models.Model):
     def __str__(self):
         return self.dispDia
 
-class Usuario(models.Model):
+class Perfil(models.Model):
+    usuario = models.OneToOneField(User, on_delete=models.CASCADE)
     jogos = models.ManyToManyField(Jogos)
     dispDia = models.ManyToManyField(DiasDisponiveis)
     icon = models.ForeignKey(UsrIcon, on_delete=models.CASCADE)
+    bio = models.TextField(max_length=300)
+
+@receiver(post_save, sender=User)
+def criarperfilusuario(sender, intancia, criado, **kwargs):
+    if criado:
+        Perfil.objects.create(usuario=intancia)
+
+@receiver(post_save, sender=User)
+def salvarperfilusuario(sender, instancia, **kwargs):
+    instancia.profile.save()

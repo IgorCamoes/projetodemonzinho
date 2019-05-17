@@ -8,7 +8,11 @@
         <div>
             {% for jogos in jogos %}
             <div>
-                <div><img src="{{ jogos.capa.url }}" alt=""></div>
+                <div>
+                    <img src="{{ jogos.capa.url }}" alt="">
+
+                    <div><h5>{{ jogos.titulo }}</h5></div>
+                </div>
             </div>
             {% endfor %}
         </div>

@@ -414,7 +414,7 @@ article > div{
 }
 
 .login{
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
@@ -430,7 +430,6 @@ article > div{
     text-transform: uppercase;
     font-size: 22pt;
     margin: 0;
-    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
 .login input, .cadastro input{
@@ -442,6 +441,11 @@ article > div{
     background-color: transparent;
     border: 1px solid #8e44ad;
     transition: 0.45s;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.login input::placeholder, cadastro input::placeholder{
+    font-family: 'Rajdhani', sans-serif;
 }
 
 .login input[type = 'text']:focus, .login input[type = 'password']:focus, .cadastro input[type = 'text']:focus, .cadastro input[type = 'password']:focus{
@@ -456,7 +460,7 @@ article > div{
 }
 
 .cadastro{
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
@@ -488,7 +492,7 @@ aside .paginaJogos > div{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    align-items: space-evenly;
+    align-content: space-around;
     margin: 50px 0;
     overflow-y:auto;
 }
@@ -504,6 +508,7 @@ aside .paginaJogos div div div:first-child{
     border-radius: 25px;
     overflow: hidden;
     width: 100px;
+    background-color: white;
 }
 
 aside .paginaJogos div div div:first-child img{
@@ -514,6 +519,20 @@ aside .paginaJogos div div div:first-child img{
 aside .paginaJogos div div div:first-child:hover{
     filter: blur(1px);
     cursor: pointer;
+}
+aside .paginaJogos div div > div div:last-child{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    opacity: 0;
+    color: white;
+    width: 100%;
+    text-align: center;
+}
+
+
+section .paginaJogos{
+    opacity: 0;
 }
 
 
