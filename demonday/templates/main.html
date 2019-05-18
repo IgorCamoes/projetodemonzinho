@@ -23,17 +23,16 @@
             </a>
             <h1 id="nomeSite">Party Match</h1>
         </div>
-        <div id="logoVazio"></div>
         <div id="navResto">
             <div class="pesquisa">
                 <input  placeholder= "Pesquisar" type="search" name="Barra de pesquisa" id="pesquisaInput">
             </div>
             <div id="atalhosArea">
-                <a href="{% url 'jogos' %}" id="botaoJogos">Jogos</a>
+                <a href="" id="botaoPerfil">Perfil</a>
                 <span></span>
                 <a href="{% url 'feed' %}" id="botaoFeed">Feed</a>
                 <span></span>
-                <a href="" id="botaoPerfil">Perfil</a>
+                <a href="{% url 'jogos' %}" id="botaoJogos">Jogos</a>
                 <span></span>
                 {% if user.is_authenticated %}
                 <a href="{% url 'logout' %}" id="botaoLogout">Logout</a>

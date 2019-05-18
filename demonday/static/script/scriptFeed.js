@@ -36,3 +36,12 @@ function openTab(evt, tabName) {
 document.querySelector('#defaultOpen').click();
 
 
+let navTabArea = document.querySelector('#navTabArea');
+let navBar = document.querySelector('nav');
+
+// Deixar a nav das abas sempre grudando na Nav:
+
+if (navBar.style.height != '7vh'){
+    navTabArea.style.top = '44px';
+}
+
