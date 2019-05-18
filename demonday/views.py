@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from demonday.models import Jogos, Plataformas, Perfil
-from demonday.forms import UsrPerfil, UsrRegistro
+from demonday.forms import UsrPerfilForm, UsrRegistroForm
 from django.contrib.auth import authenticate
 
 # Create your views here.
@@ -25,13 +25,13 @@ def paginaJogos(request):
     }
     return render(request, 'jogos.html', contexto)
 
-def lcpagina(request):
-    formUser = UsrRegistro(request.POST or None)
-    formPerfil = UsrPerfil(request.POST or None)
+def cadastro(request):
+    formUser = UsrRegistroForm(request.POST or None)
+    formPerfil = UsrPerfilForm(request.POST or None)
 
     if request.method == 'POST':
-        formUser = UsrRegistro(request.POST)
-        formPerfil = UsrPerfil(request.POST)   
+        formUser = UsrRegistroForm(request.POST)
+        formPerfil = UsrPerfilForm(request.POST)   
         
         if formUser.is_valid() and formPerfil.is_valid():
             usuario = formUser.save()
@@ -48,13 +48,15 @@ def lcpagina(request):
             return redirect('home')
         
         else:
-            formUser = UsrRegistro()
-            formPerfil = UsrPerfil()
+            formUser = UsrRegistroForm()
+            formPerfil = UsrPerfilForm()
 
     contexto={
         'form1':formUser,
         'form2':formPerfil
     }
 
-    return render(request, 'logincadastro.html', contexto)
+    return render(request, 'cadastro.html', contexto)
 
+def login(request):
+    return render(request, 'login.html')

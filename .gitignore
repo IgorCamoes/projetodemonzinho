@@ -2,8 +2,8 @@
 
 myenv/
 
-__pycache__
-
 .vscode/
 
 db.sqlite3
+
+__pycache__

@@ -1,7 +1,9 @@
-from django.db import models
 from django.contrib.auth.models import User
-from django.dispatch import receiver
+from django.core.validators import MinValueValidator, MaxValueValidator
+from django.db import models
 from django.db.models.signals import post_save
+from django.dispatch import receiver
+
 
 class Plataformas(models.Model):
     platOptions = [
@@ -23,7 +25,7 @@ class Plataformas(models.Model):
 class Jogos(models.Model):
     titulo = models.CharField(max_length=100)
     capa = models.ImageField(upload_to='capaJogos/', null=True)
-    plataforma = models.ManyToManyField(Plataformas)
+    plataformas = models.ManyToManyField(Plataformas, db_table=None)
 
     def __str__(self):
         return self.titulo
@@ -54,10 +56,21 @@ class DiasDisponiveis(models.Model):
 class Perfil(models.Model):
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
     nomeR = models.CharField(max_length=40, blank=True)
-    jogos = models.ManyToManyField(Jogos)
-    dispDia = models.ManyToManyField(DiasDisponiveis)
+    jogos = models.ManyToManyField(Jogos, db_table=None)
+    dispDia = models.ManyToManyField(DiasDisponiveis, db_table=None)
     icon = models.ForeignKey(UsrIcon, on_delete=models.CASCADE)
     bio = models.TextField(max_length=300)
+    discord = models.CharField(max_length=50, blank=True)
+    whatsapp = models.IntegerField(validators=[MaxValueValidator(11)], null=True)
+    facebook = models.CharField(max_length=50, blank=True)
 
     def __str__(self):
         return self.usuario.username
+
+class UsrPosts(models.Model):
+    usuario = models.OneToOneField(User, on_delete=models.CASCADE)
+    titulo = models.CharField(max_length=70)
+    jogo = models.ForeignKey(Jogos, on_delete=models.CASCADE)
+    # plataforma = models.CharField(choice=jogo.plataformas, max_length=20)
+    horario = models.DateTimeField()
+    comentario = models.TextField(max_length=250)

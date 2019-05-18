@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+
+<article>
+    <div>
+        <div class="login">
+            <h4>Login</h4>
+            <form method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                <input type="text" name="usuario" placeholder="Usuário">
+                <input type="password" name="senha" placeholder="Senha">
+                <input type="submit" value="Entrar">
+                <input type="button" class="cdstrbtn" value="Cadastrar-se">
+            </form>
+        </div>
+    </div>
+</article>
+{% endblock %}
