@@ -1,6 +1,5 @@
 {% load staticfiles %}
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +10,9 @@
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet"> 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link href="https://fonts.googleapis.com/css?family=Rajdhani" rel="stylesheet">
-    <script defer src="{% static 'script/script.js' %}"></script>
+    <script defer src="{% static 'script/scriptMain.js' %}"></script>
+    <script defer src="{% static 'script/scriptFeed.js' %}"></script>
+    <script defer src="{% static 'script/scriptJogos.js' %}"></script>
     <title>Document</title>
 </head>
 <body>
@@ -20,39 +21,30 @@
             <a href="/" id="logoPM">
                 <img src="" alt="Party Match">
             </a>
-            <h1>Party Match</h1>
+            <h1 id="nomeSite">Party Match</h1>
         </div>
+        <div id="logoVazio"></div>
         <div id="navResto">
-            <div id="atalhosArea">
-                <button id="atalhoButton">
-                    CurrentPage
-                    <img src="../static/Images/sort-down.png" alt="Mostrar mais.">
-                </button>
-                <div id="atalhos">
-                    <a href="{% url 'jogos' %}" id="botaoJogos">Jogos</a>
-                    <span></span>
-                    <a href="{% url 'feed' %}" id="botaoFeed">Feed</a>
-                    <span></span>
-                    <a href="" id="botaoPerfil">Perfil</a>
-                </div>
-            </div>
             <div class="pesquisa">
-                <input  placeholder= "Pesquise aqui" type="search" name="" id="">
+                <input  placeholder= "Pesquisar" type="search" name="Barra de pesquisa" id="pesquisaInput">
             </div>
-            <div id="loginButtonArea">
-                <a href="cadatre" id="botaoCadastro">Cadastre-se</a>
+            <div id="atalhosArea">
+                <a href="{% url 'jogos' %}" id="botaoJogos">Jogos</a>
                 <span></span>
+                <a href="{% url 'feed' %}" id="botaoFeed">Feed</a>
+                <span></span>
+                <a href="" id="botaoPerfil">Perfil</a>
+                <span></span>
+                {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}" id="botaoLogout">Logout</a>
+                {% else %}
                 <a href="{% url 'login' %}" id="botaoLogin">Login</a>
+                {% endif %}
             </div>
         </div>
     </nav>
- 
-    
-
-
     {% block content %}
     
-    {% endblock %}
-      
+    {% endblock %}   
 </body>
 </html>

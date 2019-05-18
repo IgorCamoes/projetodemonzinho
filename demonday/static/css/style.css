@@ -25,7 +25,7 @@ body{
     flex-wrap: wrap;
     font-family: 'Rajdhani', sans-serif;
     margin: 0%;
-    background-color: antiquewhite;
+    background-color: black;
     background-image: url('../Images/output-onlinejpgtools.jpg');
     background-size: cover;
     background-attachment: fixed;
@@ -63,7 +63,8 @@ nav .pesquisa {
     display: flex;
     justify-content: center;
     height: 100%;
-    min-width: 30%;
+    width: 30%;
+    margin-left: 10px;
 }
 
 nav .pesquisa input{
@@ -106,70 +107,13 @@ nav #logoPM{
     width: 40px
 }
 
-nav #loginButtonArea{
+nav #navResto #atalhosArea{
     align-items: center;
     display: flex;
     font-size: 16pt;
     height: 100%;
     justify-content: space-between;
-    width: 23%;
-}
-
-nav #atalhosArea{
-    align-items: center;
-    border: 1px solid rgb(92, 92, 92);
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    font-size: 16pt;
-    height: 80%;
-    justify-content: center;
-    margin-left: 10px;
-    width: 30%;
-}
-
-nav #atalhoButton{
-    align-items: center;
-    background-color: rgb(59, 59, 59);
-    border: none;
-    border-radius: 10px;
-    color: rgb(204, 204, 204);
-    cursor: pointer;
-    display: flex;
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 12pt;
-    height: 100%;
-    justify-content: space-between;
-    outline: none;
-    padding: 5px;
-    width: 100%;
-}
-
-nav #atalhoButton img{
-    height: 50%;
-}
-
-nav #atalhos{
-    background-color: rgb(59, 59, 59);
-    border: none;
-    border-radius: 0 0 10px 10px;
-    display: flex;
-    flex-direction: column;
-    font-size: 12pt;
-    left: 41.5%;
-    max-height: 0;
-    overflow: hidden;
-    padding-left: 7px;
-    position: fixed;
-    top:6vh;
-    transition: max-height 0.5s ease-out;
-    width: 16%;
-}
-
-nav #navResto #atalhos span{
-    background-color: rgb(153, 153, 153);
-    height: 1px;
-    width: 15px;
+    min-width: 40%;
 }
 
 nav span{
@@ -211,19 +155,19 @@ section{
     width: 60%;
     min-height: 100vh;
     justify-content: center;
-    align-items: flex-start;
+    align-items: flex-end;
     display: flex;
     flex-direction: column;
 }
 
 section .perfil, section .index, section .feed, section .paginaJogos{
-    width: 90%;
+    width: 91%;
     align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    margin: 20px 0 20px 20px;
+    margin: 20px 6.66% 20px 0;
     border-radius: 10px;
     background-color: rgb(201, 201, 201);
 }
@@ -244,7 +188,7 @@ footer .footer{
     background-color: darkslategrey;
     display: flex;
     flex-wrap: wrap;
-    margin: 2px 0 5% 0;
+    margin: 2px 0 20px 0;
 }
 
 footer .footer div:first-child{
