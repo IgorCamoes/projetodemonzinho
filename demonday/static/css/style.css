@@ -488,8 +488,22 @@ article > div{
     align-items: center;
     background-color: #ecf0f1;
 }
+
+.cadascont .formArea{
+    width: 100%
+}
+
+.cadascont p{
+    display: flex;
+    flex-direction: column;
+}
+
 .cadascont a input{
-    margin: 10px;
+    margin: 10px 0;
+}
+
+.cadascont .iconSelect{
+    width: 15px;
 }
 
 .cadastro .dispDiaSelect{

@@ -11,8 +11,7 @@ class UsrRegistroForm(UserCreationForm):
 
 class UsrPerfilForm(forms.ModelForm):
 
-    dispDia=forms.ChoiceField(widget=forms.Select(attrs={'class':'dispDiaSelect'}), choices=DiasDisponiveis.diasOptions)
-    icon=forms.ModelChoiceField(UsrIcon.objects.all(), widget=forms.RadioSelect)
+    # icon=forms.ModelChoiceField(UsrIcon.objects.all(), widget=forms.RadioSelect(attrs={'class':'iconSelect'}))
 
     class Meta:
         model = Perfil
@@ -36,6 +35,8 @@ class UsrPerfilForm(forms.ModelForm):
             'iniHora':SelectTimeWidget(minute_step=5, use_seconds=False),
             'fimHora':SelectTimeWidget(minute_step=5, use_seconds=False),
             'bio':forms.Textarea(attrs={'placeholder':'Escreva aqui um pouco sobre como você é quando está jogando online... Um player mais casual? Ou talvez alguém atras do competitivo?'}),
+            'dispDia':forms.Select(attrs={'class':'dispDiaSelect'}, choices=DiasDisponiveis.diasOptions),
+            'icon':forms.RadioSelect(attrs={'class':'iconSelect'})
         }
 
     def save(self, commit=True):

@@ -40,7 +40,7 @@ class UsrIcon(models.Model):
 
 class DiasDisponiveis(models.Model):
     diasOptions = [
-        ('td', 'Todos os dias'),
+        ('td','Todos os dias'),
         ('ss', 'De segunda a sexta'),
         ('fs', 'Finais de semana'),
         ('se', 'Segundas-feiras'),
@@ -68,7 +68,7 @@ class Perfil(models.Model):
     bio = models.TextField(max_length=300)
     discord = models.CharField(max_length=50, blank=True)
     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,11}$', message="Numero de celular deve conter apenas números.")
-    whatsapp = models.CharField(validators=[phone_regex], max_length=11, blank=True, default=0)
+    whatsapp = models.CharField(validators=[phone_regex], max_length=11, blank=True)
     facebook = models.CharField(max_length=50, blank=True)
  
 
