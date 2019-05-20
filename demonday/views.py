@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from demonday.models import Jogos, Plataformas, Perfil
+from demonday.models import Jogos, Plataformas, Perfil, UsrIcon
 from demonday.forms import UsrPerfilForm, UsrRegistroForm
 from django.contrib.auth import authenticate
 
@@ -31,7 +31,8 @@ def cadastro(request):
 
     if request.method == 'POST':
         formUser = UsrRegistroForm(request.POST)
-        formPerfil = UsrPerfilForm(request.POST)   
+        formPerfil = UsrPerfilForm(request.POST)  
+        form.fields["icon"].queryset = UsrIcon.objects.all() 
         
         if formUser.is_valid() and formPerfil.is_valid():
             usuario = formUser.save()

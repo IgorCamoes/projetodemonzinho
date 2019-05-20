@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from demonday.models import Perfil, UsrPosts, DiasDisponiveis
+from demonday.models import Perfil, UsrPosts, DiasDisponiveis, UsrIcon
 from django.contrib.auth.forms import UserCreationForm
 from demonday.select_time_widget import SelectTimeWidget
 
@@ -10,6 +10,10 @@ class UsrRegistroForm(UserCreationForm):
         fields = ['username', 'password1', 'password2']
 
 class UsrPerfilForm(forms.ModelForm):
+
+    dispDia=forms.ChoiceField(widget=forms.Select(attrs={'class':'dispDiaSelect'}), choices=DiasDisponiveis.diasOptions)
+    icon=forms.ModelChoiceField(UsrIcon.objects.all(), widget=forms.RadioSelect)
+
     class Meta:
         model = Perfil
         
@@ -29,10 +33,9 @@ class UsrPerfilForm(forms.ModelForm):
         }
 
         widgets = {
-            'dispDia':forms.Select(choices=DiasDisponiveis.diasOptions),
-            'iniHora':SelectTimeWidget(use_seconds=False),
-            'fimHora':SelectTimeWidget(use_seconds=False),
-            'bio':forms.Textarea(attrs={'placeholder':'Escreva aqui um pouco sobre como você é quando está jogando online... Um player mais casual? Ou talvez alguém atras do competitivo?'}) 
+            'iniHora':SelectTimeWidget(minute_step=5, use_seconds=False),
+            'fimHora':SelectTimeWidget(minute_step=5, use_seconds=False),
+            'bio':forms.Textarea(attrs={'placeholder':'Escreva aqui um pouco sobre como você é quando está jogando online... Um player mais casual? Ou talvez alguém atras do competitivo?'}),
         }
 
     def save(self, commit=True):

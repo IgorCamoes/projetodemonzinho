@@ -423,11 +423,11 @@ article > div{
     margin: 0;
 }
 
-.login input, .cadastro input, .cadastro select{
+.login input, .cadastro input{
     text-align: center;
     width: 150px;
     height: 40px;
-    border-radius: 15px;
+    border-radius: 5px;
     outline: none;
     background-color: transparent;
     border: 1px solid #8e44ad;
@@ -450,6 +450,18 @@ article > div{
     color: white;
 }
 
+.cadastro select{
+    text-align: center;
+    height: 40px;
+    border-radius: 5px;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid #8e44ad;
+    transition: 0.45s;
+    font-family: 'Rajdhani', sans-serif;
+    width: 50px;
+}
+
 .login form{
     display: flex;
     flex-direction: column;
@@ -463,6 +475,7 @@ article > div{
     display: flex;
     justify-content: center;
     background-color: #ecf0f1;
+    border-radius: 10px;
     width: 60%;
     height: 95%;
     overflow: auto;
@@ -479,6 +492,9 @@ article > div{
     margin: 10px;
 }
 
+.cadastro .dispDiaSelect{
+    width: 100px;
+}
 
 
 /* ======== JOGOS ======== */
@@ -491,6 +507,7 @@ article > div{
 
 aside .paginaJogos{
     height:250px;
+    min-height: 100vh;
     overflow: auto;
 }
 

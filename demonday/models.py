@@ -84,5 +84,5 @@ class UsrPosts(models.Model):
     titulo = models.CharField(max_length=70)
     jogo = models.ForeignKey(Jogos, on_delete=models.CASCADE)
     # plataforma = models.CharField(choice=jogo.plataformas, max_length=20)
-    horario = models.DateTimeField()
+    # horario = models.DateTimeField()
     comentario = models.TextField(max_length=250)
