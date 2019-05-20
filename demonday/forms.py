@@ -52,5 +52,5 @@ class UsrPerfilForm(forms.ModelForm):
 
 class UsrPostsForm(forms.ModelForm):
     class Meta:
-        model: UsrPosts
-        fields = ['titulo', 'jogo', 'plataformas', 'horario', 'comentario']
+        model = UsrPosts
+        fields = ['titulo', 'jogo', 'plataforma', 'horario', 'comentario']

@@ -62,13 +62,13 @@ class Perfil(models.Model):
     nomeR = models.CharField(max_length=40, blank=True)
     jogos = models.ManyToManyField(Jogos, db_table=None)
     dispDia = models.ManyToManyField(DiasDisponiveis, db_table=None)
-    iniHora = models.TimeField(default='', blank=True)
-    fimHora = models.TimeField(default='', blank=True)
+    iniHora = models.TimeField(blank=True, default=0)
+    fimHora = models.TimeField(blank=True, default=0)
     icon = models.ForeignKey(UsrIcon, on_delete=models.CASCADE)
     bio = models.TextField(max_length=300)
     discord = models.CharField(max_length=50, blank=True)
     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,11}$', message="Numero de celular deve conter apenas números.")
-    whatsapp = models.CharField(validators=[phone_regex], max_length=11, blank=True)
+    whatsapp = models.CharField(validators=[phone_regex], max_length=11, blank=True, default=0)
     facebook = models.CharField(max_length=50, blank=True)
  
 
@@ -83,6 +83,11 @@ class UsrPosts(models.Model):
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
     titulo = models.CharField(max_length=70)
     jogo = models.ForeignKey(Jogos, on_delete=models.CASCADE)
+<<<<<<< HEAD
     # plataforma = models.CharField(choice=jogo.plataformas, max_length=20)
     # horario = models.DateTimeField()
+=======
+    plataforma = models.ForeignKey(Plataformas, on_delete=models.CASCADE)
+    horario = models.DateTimeField(default=0)
+>>>>>>> 59a3cfcff92dc49211eb4ca58ab1f70e50111477
     comentario = models.TextField(max_length=250)
