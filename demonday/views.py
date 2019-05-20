@@ -1,11 +1,6 @@
 from django.shortcuts import render, redirect
-<<<<<<< HEAD
-from demonday.models import Jogos, Plataformas, Perfil, UsrIcon
-from demonday.forms import UsrPerfilForm, UsrRegistroForm
-=======
-from demonday.models import Jogos, Plataformas, Perfil, UsrPosts
+from demonday.models import Jogos, Plataformas, Perfil, UsrIcon, UsrPosts
 from demonday.forms import UsrPerfilForm, UsrRegistroForm, UsrPostsForm
->>>>>>> 59a3cfcff92dc49211eb4ca58ab1f70e50111477
 from django.contrib.auth import authenticate
 
 # Create your views here.

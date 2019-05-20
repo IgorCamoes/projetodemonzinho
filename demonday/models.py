@@ -83,11 +83,6 @@ class UsrPosts(models.Model):
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
     titulo = models.CharField(max_length=70)
     jogo = models.ForeignKey(Jogos, on_delete=models.CASCADE)
-<<<<<<< HEAD
-    # plataforma = models.CharField(choice=jogo.plataformas, max_length=20)
-    # horario = models.DateTimeField()
-=======
     plataforma = models.ForeignKey(Plataformas, on_delete=models.CASCADE)
     horario = models.DateTimeField(default=0)
->>>>>>> 59a3cfcff92dc49211eb4ca58ab1f70e50111477
     comentario = models.TextField(max_length=250)
