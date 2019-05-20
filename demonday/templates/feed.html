@@ -24,7 +24,13 @@
             </div>
         </div>
         <div class="newPost">
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis quam voluptas totam quos optio, maiores consequatur iusto deserunt vero reprehenderit atque, distinctio quo deleniti. Alias sunt placeat laborum sed nam!</p> 
+            <form action="" method="post">
+                {% csrf_token %}
+
+                {{form.as_p}}
+
+                <input type="submit" value="Postar">
+            </form>
         </div>
         <div class='topGameList'>
             <div class="tituloTopGameList">

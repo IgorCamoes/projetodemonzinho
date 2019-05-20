@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from demonday.models import Jogos, Plataformas, Perfil
-from demonday.forms import UsrPerfilForm, UsrRegistroForm
+from demonday.models import Jogos, Plataformas, Perfil, UsrPosts
+from demonday.forms import UsrPerfilForm, UsrRegistroForm, UsrPostsForm
 from django.contrib.auth import authenticate
 
 # Create your views here.
@@ -13,7 +13,22 @@ def perfil(request):
     return render(request, 'perfil.html')
     
 def feed(request):
-    return render(request, 'feed.html')
+    formPost = UsrPostsForm(request.POST or None)
+    
+    if request.method == 'POST':
+        formPost = formPost(request.POST)
+
+        if formPost.is_valid():
+            post = formPost.save()
+            titulo = formPost.cleaned_data.get('titulo')
+            comentario = formPost.cleaned_data.get('comentario')
+            
+    contexto={
+        'form':formPost
+    }
+        
+
+    return render(request, 'feed.html', contexto)
     
 def paginaJogos(request):
     jogo = Jogos.objects.all()
@@ -37,11 +52,7 @@ def cadastro(request):
             usuario = formUser.save()
             perfil = formPerfil.save(commit=False)
             perfil.usuario = usuario
-
             perfil.save()
-
-
-
             username = formUser.cleaned_data.get('username')
             senha = formUser.cleaned_data.get('password1')
             usuario = authenticate(username=username, password=senha)
@@ -59,4 +70,5 @@ def cadastro(request):
     return render(request, 'cadastro.html', contexto)
 
 def login(request):
+    
     return render(request, 'login.html')
