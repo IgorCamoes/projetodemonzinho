@@ -61,7 +61,7 @@ class Perfil(models.Model):
     icon = models.ForeignKey(UsrIcon, on_delete=models.CASCADE)
     bio = models.TextField(max_length=300)
     discord = models.CharField(max_length=50, blank=True)
-    whatsapp = models.IntegerField(validators=[MaxValueValidator(11)], null=True)
+    whatsapp = models.IntegerField(validators=[MaxValueValidator(11)],default="", blank=True)
     facebook = models.CharField(max_length=50, blank=True)
 
     def __str__(self):

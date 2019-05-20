@@ -8,12 +8,12 @@
     <div>
         <div class="login">
             <h4>Login</h4>
-            <form method="POST" action="{% url 'login' %}">
+            <form method="POST" action="{% url 'loginn' %}">
                 {% csrf_token %}
                 <input type="text" name="usuario" placeholder="Usuário">
                 <input type="password" name="senha" placeholder="Senha">
                 <input type="submit" value="Entrar">
-                <input type="button" class="cdstrbtn" value="Cadastrar-se">
+                <a href="{% url 'cadastro' %}"><input type="button" value="Cadastrar-se"></a>
             </form>
         </div>
     </div>
