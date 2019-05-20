@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Rajdhani" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet"> 
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Rajdhani" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <script defer src="{% static 'script/scriptMain.js' %}"></script>
     <script defer src="{% static 'script/scriptFeed.js' %}"></script>
     <script defer src="{% static 'script/scriptJogos.js' %}"></script>
@@ -37,7 +37,7 @@
                 {% if user.is_authenticated %}
                 <a href="{% url 'logout' %}" id="botaoLogout">Logout</a>
                 {% else %}
-                <a href="{% url 'login' %}" id="botaoLogin">Login</a>
+                <a href="{% url 'loginn' %}" id="botaoLogin">Login</a>
                 {% endif %}
             </div>
         </div>

@@ -14,12 +14,14 @@
                 <p>CONTA CRIADA COM SUCESSO</p>
                 {% endfor %}
                 {% endif %}
-                <form method="POST">
-                    {% csrf_token %}
-                    {{ form1.as_p }}
-                    {{ form2.as_p }}
+                <div class="formArea">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form1.as_p }}
+                        {{ form2.as_p }}                       
+                    </form>
                     <a href="{% url 'cadastro' %}"><input type="submit" value="Cadastrar-se"></a>
-                </form>
+                </div>
             </div>
         </div>
     </div>

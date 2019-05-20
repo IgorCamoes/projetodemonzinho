@@ -8,13 +8,17 @@
     <div>
         <div class="login">
             <h4>Login</h4>
-            <form method="POST" action="{% url 'login' %}">
-                {% csrf_token %}
-                <input type="text" name="usuario" placeholder="Usuário">
-                <input type="password" name="senha" placeholder="Senha">
-                <input type="submit" value="Entrar">
-                <input type="button" class="cdstrbtn" value="Cadastrar-se">
-            </form>
+            <div class="formArea">
+                <form method="POST" action="{% url 'loginn' %}">
+                    {% csrf_token %}
+                    <input type="text" name="usuario" placeholder="Usuário">
+                    <input type="password" name="senha" placeholder="Senha">
+                    <input type="submit" value="Entrar">
+                    <a href="{% url 'cadastro' %}">
+                        <input type="button" class="cdstrbtn" value="Cadastrar-se">
+                    </a>
+                </form>
+            </div>  
         </div>
     </div>
 </article>

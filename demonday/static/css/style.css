@@ -400,11 +400,19 @@ article > div{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     background-color: #ecf0f1;
     width: 50%;
     height: 60%;
     border-radius: 50px;
+}
+
+.login .formArea{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 80%;
 }
 
 .login h4, .cadastro h4{
@@ -415,7 +423,7 @@ article > div{
     margin: 0;
 }
 
-.login input, .cadastro input{
+.login input, .cadastro input, .cadastro select{
     text-align: center;
     width: 150px;
     height: 40px;
@@ -427,7 +435,7 @@ article > div{
     font-family: 'Rajdhani', sans-serif;
 }
 
-.login input::placeholder, cadastro input::placeholder{
+.login input::placeholder, .cadastro input::placeholder{
     font-family: 'Rajdhani', sans-serif;
 }
 
@@ -436,7 +444,7 @@ article > div{
     border-color: black;
 }
 
-.login input[type='submit']:hover, .login input[type='button']:hover, .cadastro input[type='submit']:hover, .cadastro input[type='button']:hover {
+.login input[type='submit']:hover, .login input[type='button']:hover, .cadastro input[type='submit']:hover, .cadastro input[type='button']:hover, .cadastro select:hover{
     cursor: pointer;
     background-color: #311B92;
     color: white;
@@ -455,9 +463,9 @@ article > div{
     display: flex;
     justify-content: center;
     background-color: #ecf0f1;
-    width: 50%;
-    height: 80%;
-    overflow: scroll;
+    width: 60%;
+    height: 95%;
+    overflow: auto;
 }
 
 .cadascont{
@@ -466,6 +474,11 @@ article > div{
     flex-direction: column;
     align-items: center;
 }
+.cadascont a input{
+    margin: 10px;
+}
+
+
 
 /* ======== JOGOS ======== */
 

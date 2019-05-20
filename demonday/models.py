@@ -3,6 +3,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.core.validators import RegexValidator
 
 
 class Plataformas(models.Model):
@@ -39,11 +40,14 @@ class UsrIcon(models.Model):
 
 class DiasDisponiveis(models.Model):
     diasOptions = [
-        ('se', 'Segunda-feiras'),
-        ('te', 'Terça-feiras'),
-        ('qa', 'Quarta-feiras'),
-        ('qi', 'Quinta-feiras'),
-        ('sx', 'Sexta-feiras'),
+        ('td', 'Todos os dias'),
+        ('ss', 'De segunda a sexta'),
+        ('fs', 'Finais de semana'),
+        ('se', 'Segundas-feiras'),
+        ('te', 'Terças-feiras'),
+        ('qa', 'Quartas-feiras'),
+        ('qi', 'Quintas-feiras'),
+        ('sx', 'Sextas-feiras'),
         ('sa', 'Sábados'),
         ('dm', 'Domingos')
     ]
@@ -58,11 +62,19 @@ class Perfil(models.Model):
     nomeR = models.CharField(max_length=40, blank=True)
     jogos = models.ManyToManyField(Jogos, db_table=None)
     dispDia = models.ManyToManyField(DiasDisponiveis, db_table=None)
+    iniHora = models.TimeField(default='', blank=True)
+    fimHora = models.TimeField(default='', blank=True)
     icon = models.ForeignKey(UsrIcon, on_delete=models.CASCADE)
     bio = models.TextField(max_length=300)
     discord = models.CharField(max_length=50, blank=True)
-    whatsapp = models.IntegerField(validators=[MaxValueValidator(11)], null=True)
+    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,11}$', message="Numero de celular deve conter apenas números.")
+    whatsapp = models.CharField(validators=[phone_regex], max_length=11, blank=True)
     facebook = models.CharField(max_length=50, blank=True)
+ 
+
+    def clean(self):
+        if not (self.discord or self.whatsapp or self.facebook):
+            raise ValidationError("Você precisa de pelo menos um meio de contato preenchido!")
 
     def __str__(self):
         return self.usuario.username

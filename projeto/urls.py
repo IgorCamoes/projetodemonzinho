@@ -26,7 +26,7 @@ urlpatterns = [
     path('', views.index, name='home'),
     path('user/username', views.perfil),
     path('jogos/', views.paginaJogos, name='jogos'),
-    path('login/', LoginView.as_view(template_name='login.html'), name='login'),
+    path('login/', LoginView.as_view(template_name='login.html'), name='loginn'),
     path('cadastro/', views.cadastro, name='cadastro'),
     path('feed/', views.feed, name='feed'),
     path('user/', include('django.contrib.auth.urls')),
