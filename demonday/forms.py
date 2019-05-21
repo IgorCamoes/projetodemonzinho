@@ -11,7 +11,7 @@ class UsrRegistroForm(UserCreationForm):
 
 class UsrPerfilForm(forms.ModelForm):
 
-    # icon=forms.ModelChoiceField(UsrIcon.objects.all(), widget=forms.RadioSelect(attrs={'class':'iconSelect'}))
+    icon=forms.ModelChoiceField(UsrIcon.objects.all(), widget=forms.RadioSelect(attrs={'class':'iconSelect'}))
 
     class Meta:
         model = Perfil

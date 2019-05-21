@@ -40,16 +40,16 @@ class UsrIcon(models.Model):
 
 class DiasDisponiveis(models.Model):
     diasOptions = [
-        ('td','Todos os dias'),
-        ('ss', 'De segunda a sexta'),
-        ('fs', 'Finais de semana'),
-        ('se', 'Segundas-feiras'),
-        ('te', 'Terças-feiras'),
-        ('qa', 'Quartas-feiras'),
-        ('qi', 'Quintas-feiras'),
-        ('sx', 'Sextas-feiras'),
-        ('sa', 'Sábados'),
-        ('dm', 'Domingos')
+        ('td', u'Todos os dias'),
+        ('ss', u'De segunda a sexta'),
+        ('fs', u'Finais de semana'),
+        ('se', u'Segundas-feiras'),
+        ('te', u'Terças-feiras'),
+        ('qa', u'Quartas-feiras'),
+        ('qi', u'Quintas-feiras'),
+        ('sx', u'Sextas-feiras'),
+        ('sa', u'Sábados'),
+        ('dm', u'Domingos')
     ]
 
     dispDia = models.CharField(max_length=2, choices=diasOptions)
@@ -86,3 +86,6 @@ class UsrPosts(models.Model):
     plataforma = models.ForeignKey(Plataformas, on_delete=models.CASCADE)
     horario = models.DateTimeField(default=0)
     comentario = models.TextField(max_length=250)
+
+    def __str__(self):
+        return self.titulo

@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from demonday.models import Jogos, Plataformas, Perfil, UsrIcon, UsrPosts
 from demonday.forms import UsrPerfilForm, UsrRegistroForm, UsrPostsForm
 from django.contrib.auth import authenticate
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -14,7 +15,8 @@ def perfil(request):
     
 def feed(request):
     formPost = UsrPostsForm(request.POST or None)
-    
+    perfil = Perfil.objects.all()
+
     if request.method == 'POST':
         formPost = formPost(request.POST)
 
@@ -24,10 +26,12 @@ def feed(request):
             comentario = formPost.cleaned_data.get('comentario')
             
     contexto={
-        'form':formPost
-    }
+        'form':formPost,
+        'perfil':perfil,
+        'nomeR':Perfil.nomeR
+        }
         
-
+    print(perfil)
     return render(request, 'feed.html', contexto)
     
 def paginaJogos(request):

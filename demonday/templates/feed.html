@@ -12,8 +12,15 @@
                     <img src="{% static 'Images/icons8-tipo-de-pele-usuária-5-96.png' %}"  alt="Imagem do perfil">
                 </div>
                 <div >
-                    <h3>UserName</h3>
-                    <h4>Nome Real</h4>
+                    <h4>{{ user.get_username }}</h4>
+                    
+                    {% for pessoas in perfil %}
+                        {% if pessoas.usuario == user.get_username %}
+                            {% if pessoas.nomeR != blank %}
+                                <h4>{{ pessoas.nomeR }}</h4>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
                 </div>
             </div>
             <div class="newPostButtonArea">
@@ -64,7 +71,11 @@
             Todos
         </div>
         <div class="tabContent" id="tabMatchPosts">
-            Posts
+            <div class="postsTitulo">
+                <div class="postsConteudo">
+                    
+                </div>
+            </div>
         </div>
         <div class="tabContent" id="tabMatchProfiles">
             Perfis
