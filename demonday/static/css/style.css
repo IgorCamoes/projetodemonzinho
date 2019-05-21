@@ -750,9 +750,18 @@ section .feed #navTabArea #navTab button.active{
 section .feed .tabContent{
     animation: fadeEffect .5s;
     display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
 @keyframes fadeEffect {
     from {opacity: 0;}
     to {opacity: 1;}
+}
+
+section .postsTitulo{
+    width: 90%;
+    border: 1px solid slateblue;
+    border-radius: 10px;
 }

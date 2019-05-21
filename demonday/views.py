@@ -16,6 +16,7 @@ def perfil(request):
 def feed(request):
     formPost = UsrPostsForm(request.POST or None)
     perfil = Perfil.objects.all()
+    posts = UsrPosts.objects.all()
 
     if request.method == 'POST':
         formPost = formPost(request.POST)
@@ -28,10 +29,9 @@ def feed(request):
     contexto={
         'form':formPost,
         'perfil':perfil,
-        'nomeR':Perfil.nomeR
+        'posts':posts
         }
         
-    print(perfil)
     return render(request, 'feed.html', contexto)
     
 def paginaJogos(request):

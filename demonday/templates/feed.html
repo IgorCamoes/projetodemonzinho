@@ -13,12 +13,11 @@
                 </div>
                 <div >
                     <h4>{{ user.get_username }}</h4>
-                    
-                    {% for pessoas in perfil %}
-                        {% if pessoas.usuario == user.get_username %}
-                            {% if pessoas.nomeR != blank %}
-                                <h4>{{ pessoas.nomeR }}</h4>
-                            {% endif %}
+                    {% for p in perfil %}
+                        {% if p.get_username == user.get_username %}
+                            
+                            <h4>{{ p.nomeR }} e {{ p.get_username }}</h4>
+                            
                         {% endif %}
                     {% endfor %}
                 </div>
@@ -71,11 +70,19 @@
             Todos
         </div>
         <div class="tabContent" id="tabMatchPosts">
+            {% for post in posts %}
             <div class="postsTitulo">
+                <p>{{ post.titulo }} - {{ post.jogo }}</p>
                 <div class="postsConteudo">
-                    
+                    <div class="postCapa">
+                    <img src="{{ post.jogo.capa.url }}" alt="">
+                </div>
+                <p> - {{ post.plataforma }}</p>
+                
+                    <p>{{ post.comentario }}</p> - <a href="#">{{ post.usuario }}</a>
                 </div>
             </div>
+            {% endfor %}
         </div>
         <div class="tabContent" id="tabMatchProfiles">
             Perfis
