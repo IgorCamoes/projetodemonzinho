@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from demonday.models import Jogos, Plataformas, Perfil, UsrIcon, UsrPosts
-from demonday.forms import UsrPerfilForm, UsrRegistroForm, UsrPostsForm
+from demonday.forms import UsrPerfilForm, UsrRegistroForm, UsrPostsForm, UsrPerfilForm2
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 
@@ -47,13 +47,16 @@ def paginaJogos(request):
 def cadastro(request):
     formUser = UsrRegistroForm(request.POST or None)
     formPerfil = UsrPerfilForm(request.POST or None)
+    formPerfil2 = UsrPerfilForm2(request.POST or None)
+
 
     if request.method == 'POST':
         formUser = UsrRegistroForm(request.POST)
         formPerfil = UsrPerfilForm(request.POST)  
+        formPerfil2 = UsrPerfilForm2(request.POST)  
         form.fields["icon"].queryset = UsrIcon.objects.all() 
         
-        if formUser.is_valid() and formPerfil.is_valid():
+        if formUser.is_valid() and formPerfil.is_valid() and formPerfil2.is_valid():
             usuario = formUser.save()
             perfil = formPerfil.save(commit=False)
             perfil.usuario = usuario
@@ -66,10 +69,13 @@ def cadastro(request):
         else:
             formUser = UsrRegistroForm()
             formPerfil = UsrPerfilForm()
+            formPerfil2 = UsrPerfilForm2()
+
 
     contexto={
         'form1':formUser,
-        'form2':formPerfil
+        'form2':formPerfil,
+        'form3':formPerfil2
     }
 
     return render(request, 'cadastro.html', contexto)

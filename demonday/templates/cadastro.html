@@ -18,7 +18,10 @@
                     <form method="POST">
                         {% csrf_token %}
                         {{ form1.as_p }}
-                        {{ form2.as_p }}                       
+                        {{ form2.as_p }}    
+                        <div class="form3Area">
+                            {{ form3.as_p }}
+                        </div>                
                     </form>
                     <a href="{% url 'cadastro' %}"><input type="submit" value="Cadastrar-se"></a>
                 </div>

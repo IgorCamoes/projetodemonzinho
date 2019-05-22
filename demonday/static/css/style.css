@@ -498,6 +498,12 @@ article > div{
     flex-direction: column;
 }
 
+.cadascont .form3Area p{
+    display: flex;
+    flex-direction: row;
+}
+
+
 .cadascont a input{
     margin: 10px 0;
 }

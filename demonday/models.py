@@ -4,6 +4,7 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.core.validators import RegexValidator
+from multiselectfield import MultiSelectField
 
 
 class Plataformas(models.Model):
@@ -40,20 +41,20 @@ class UsrIcon(models.Model):
 
 class DiasDisponiveis(models.Model):
     diasOptions = [
-        ('td', u'Todos os dias'),
-        ('ss', u'De segunda a sexta'),
-        ('fs', u'Finais de semana'),
-        ('se', u'Segundas-feiras'),
-        ('te', u'Terças-feiras'),
-        ('qa', u'Quartas-feiras'),
-        ('qi', u'Quintas-feiras'),
-        ('sx', u'Sextas-feiras'),
-        ('sa', u'Sábados'),
-        ('dm', u'Domingos')
+        ('td', 'Todos os dias'),
+        ('ss', 'De segunda a sexta'),
+        ('fs', 'Finais de semana'),
+        ('se', 'Segundas-feiras'),
+        ('te', 'Terças-feiras'),
+        ('qa', 'Quartas-feiras'),
+        ('qi', 'Quintas-feiras'),
+        ('sx', 'Sextas-feiras'),
+        ('sa', 'Sábados'),
+        ('dm', 'Domingos')
     ]
 
-    dispDia = models.CharField(max_length=2, choices=diasOptions)
-    
+    dispDia = models.CharField(max_length=2, choices=diasOptions)  
+
     def __str__(self):
         return self.dispDia
 
