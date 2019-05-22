@@ -5,6 +5,8 @@ from demonday.models import Perfil, UsrPosts, DiasDisponiveis, UsrIcon, Jogos
 from django.contrib.auth.forms import UserCreationForm
 from django.utils.safestring import mark_safe
 from demonday.select_time_widget import SelectTimeWidget
+from multiselectfield import MultiSelectField
+
 
 class FieldComIcone(forms.ModelChoiceField):
 
@@ -31,10 +33,6 @@ class UsrPerfilForm(UserCreationForm):
         
         labels = {
             'nomeR':'Nome Real (opcional)',
-            'jogos':'Jogos',
-            'dispDia':'Dias disponíveis',
-            'iniHora':'Das',
-            'fimHora':'Até',
             'bio':'Sobre você',
             'discord':'Discord',
             'whatsapp':'WhatsApp',
@@ -42,11 +40,7 @@ class UsrPerfilForm(UserCreationForm):
         }
 
         widgets = {
-            'iniHora':SelectTimeWidget(minute_step=5, use_seconds=False),
-            'fimHora':SelectTimeWidget(minute_step=5, use_seconds=False),
             'bio':forms.Textarea(attrs={'placeholder':'Escreva aqui um pouco sobre como você é quando está jogando online... Um player mais casual? Ou talvez alguém atras do competitivo?'}),
-            'dispDia':forms.Select(attrs={'class':'dispDiaSelect'}, choices=DiasDisponiveis.diasOptions),
-            'icon':forms.RadioSelect(attrs={'class':'iconSelect'}),
         }
 
     def clean(self):
@@ -63,6 +57,32 @@ class UsrPerfilForm(UserCreationForm):
         if commit:
             usuario.save()
         return usuario
+
+class UsrPerfilForm2(forms.ModelForm):
+
+    icon = FieldComIcone(widget=forms.RadioSelect, queryset=UsrIcon.objects.all(), label='Avatar')
+    jogos = FieldComFoto(widget=forms.CheckboxSelectMultiple, queryset=Jogos.objects.all())
+
+    class Meta:
+
+        dias = DiasDisponiveis.objects.all()
+        model = Perfil
+        
+        fields = ['jogos', 'dispDia', 'iniHora', 'fimHora', 'icon',]
+        
+        labels = {
+            'jogos':'Jogos',
+            'dispDia':'Dias disponíveis',
+            'iniHora':'Das',
+            'fimHora':'Até',
+        }
+
+        widgets = {
+            'iniHora':SelectTimeWidget(minute_step=5, use_seconds=False),
+            'fimHora':SelectTimeWidget(minute_step=5, use_seconds=False),
+            'dispDia':forms.Select(attrs={'class':'dispDiaSelect'}, choices=dias)
+        }
+
 
 class UsrPostsForm(forms.ModelForm):
     class Meta:

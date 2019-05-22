@@ -19,8 +19,10 @@
                         {% csrf_token %}
                         {{ form1.as_p }}
                         {{ form2.as_p }}
-                        
-                        <input type="submit" value="Cadastrar-se">                       
+                            
+                        <div class="form3Area">
+                            {{ form3.as_p }}
+                        </div>                
                     </form>
                     
                 </div>
