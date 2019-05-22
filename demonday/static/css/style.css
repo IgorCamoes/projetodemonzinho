@@ -138,6 +138,12 @@ header{
     height: 70vh;
 }
 
+header .index{
+    background-image: url('../Images/61268261_6137058486288_183235051582914560_n.png');
+    background-size: contain;
+    background-repeat: repeat-x;
+}
+
 /* Padrões do aside e section */
 
 aside{
@@ -248,18 +254,12 @@ footer .footer div:last-child {
     flex-wrap: wrap;
 }
 
-header .index{
-    background-image: url('https://images.unsplash.com/photo-1533613220915-609f661a6fe1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80');
-    background-size: cover;
-}
-
 .BannerTexto {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 40%;
     height: 100%;
-    background-color: #8e44ad;
 }
 
 .ContBanner {
@@ -268,7 +268,8 @@ header .index{
     display: flex;
     flex-direction: column;
     justify-content: center;
-
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .ContBanner h1 {
@@ -279,11 +280,13 @@ header .index{
     font-family: 'Press Start 2P', cursive;
 }
 
+.ContBanner span{
+    background-color: rgba(0, 0, 0, 0.486);
+}
+
 .BannerImg {
     width: 60%;
     display: flex;
-    background-image: url('https://images.unsplash.com/photo-1533613220915-609f661a6fe1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80');
-    background-size: cover;
 }
 
 .sIndexCont{
@@ -326,6 +329,7 @@ aside .index{
     height: 100%;
     display: flex;
     flex-wrap: wrap;
+    overflow: auto;
 }
 
 
@@ -675,7 +679,7 @@ aside .feed .top .userInfo .userImage img{
 
 aside .feed .top .userInfo h4{
     font-family: 'Press Start 2P', cursive;
-    font-size: 16pt;
+    font-size: 12pt;
     font-weight: 600;
     margin: 0;
 }
@@ -743,6 +747,11 @@ aside .feed .newPost{
     padding: 0 5% 0 5%;
     transition: max-height 0.5s ease-out;
     width: 90%;
+}
+
+.aIndexCont img{
+    width: 40px;
+    height: 80px;
 }
 
 aside .feed .newPost form p{
@@ -856,7 +865,7 @@ section .feed .tabContent{
 
 /* Estilo das divs de post */
 
-section .feed .tabContent .postsTitulo{
+.postsTitulo{
     width: 95%;
     border: 1px solid #311B92;
     border-radius: 4px;
@@ -871,7 +880,7 @@ section .feed .tabContent .postsTitulo{
  
 }
 
-section .feed .tabContent .postsTitulo .postsHeader{
+.postsTitulo .postsHeader{
     min-height: 90px;
     width: 100%;
     display: flex;
@@ -881,7 +890,7 @@ section .feed .tabContent .postsTitulo .postsHeader{
     justify-content: space-between;
 }
 
-section .feed .tabContent .postsTitulo h4{
+.postsTitulo h4{
     display: flex;
     flex-wrap: wrap;
     font-size: 16pt;
@@ -890,27 +899,27 @@ section .feed .tabContent .postsTitulo h4{
     width: 70%;
 }
 
-section .feed .tabContent .postCapaJogo{
+.postCapaJogo{
     border-radius: 100%;
     width: 90px;
     height: 90px;
     overflow: hidden;
 }
 
-section .feed .tabContent .postCapaJogo > img{
+.postCapaJogo > img{
     border-radius: 100%;
     width: 90px;
 }
 
 
-section .feed .tabContent .postButtonArea{
+.postButtonArea{
     align-items: center;
     display: flex;
     height: 50%;
     justify-content: flex-end;
 }
 
-section .feed .tabContent .postButtonArea .postButton{
+.postButtonArea .postButton{
     align-items: center;
     background-color: rgb(189, 189, 189);
     border-style: solid;
@@ -925,36 +934,36 @@ section .feed .tabContent .postButtonArea .postButton{
     width: 40px;
 }
 
-section .feed .tabContent .postButtonArea .postButton span{
+.postButtonArea .postButton span{
     background-color: #311B92;
     border-radius: 3px;
     height: 2px;
     width: 90%;
 }
 
-section .feed .tabContent .postButtonArea .postButton .spanVertical1{
+.postButtonArea .postButton .spanVertical1{
     transform: translateX(50%) rotate(90deg);
     transition: .50s;
     opacity: 1;
     z-index: 10;
 }
 
-section .feed .tabContent .postButtonArea .postButton .spanHorizontal1{
+.postButtonArea .postButton .spanHorizontal1{
     transform: translateX(-50%);
 }
 
-section .feed .tabContent .postButtonArea .postButton .verticalDesce1{
+.postButtonArea .postButton .verticalDesce1{
     transform: translateX(50%) translateY(30px) rotate(90deg);
     transition: .50s;
     opacity: 0;
     z-index: -1;
 }
 
-section .feed .tabContent .postButtonArea .active1, section .feed .tabContent .postButtonArea .postButton:hover{
+.postButtonArea .active1, .postButtonArea .postButton:hover{
     background-color: #8e44ad;
 }
 
-section .feed .tabContent .postsConteudo{ 
+.postsConteudo{ 
     font-size: 14pt;
     font-weight: 600;
     max-height: 0px;
@@ -963,7 +972,7 @@ section .feed .tabContent .postsConteudo{
     width: 100%;
 }
 
-section .feed .tabContent .postsConteudo .comentarioPost{
+postsConteudo .comentarioPost{
     border-top: 1px solid #311B92;
     border-bottom: 1px solid #311B92;
     font-size: 12pt;
@@ -971,15 +980,16 @@ section .feed .tabContent .postsConteudo .comentarioPost{
     width: 100%;
 }
 
-section .feed .tabContent .postsConteudo .atalhoPerfilPost{ 
+.postsConteudo .atalhoPerfilPost{ 
     font-size: 12pt;
     font-weight: 200;
     margin: 20px 0;
 }
 
-section .feed .tabContent .postsConteudo .atalhoPerfilPost a{
+.postsConteudo .atalhoPerfilPost a{
     color: #311B92;
     font-size: 14pt;
     font-weight: 600;
     text-decoration: none;
 }
+

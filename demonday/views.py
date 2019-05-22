@@ -20,22 +20,32 @@ def index(request):
 def perfil(request):
     perfil = Perfil.objects.all()
     posts = UsrPosts.objects.all()
-    
+    eu = UsrPosts.objects.all().filter(usuario__username='Juliafc')
+
+
     contexto={
         'perfil':perfil,
-        'post':posts
+        'post':posts,
+        'eu':eu
     }
 
     return render(request, 'perfil.html', contexto)
 
 def pega_o_user(request, username):
     user = User.objects.get(username=username)
-    return render(request, 'user.html', {"usuario":user})
+    post = UsrPosts.objects.all().filter(usuario__username='%s' % user)
+
+    contexto={
+        "usuario":user,
+        'post':post
+    }
+    return render(request, 'user.html', contexto)
     
 def feed(request):
     perfil = Perfil.objects.all()
     posts = UsrPosts.objects.all()
     form_Post = UsrPostsForm(request.POST or None)
+    feedFilter = UsrPosts.objects.all().filter(usuario__username='Skorthix')
     
 
     if request.method == 'POST':
@@ -59,18 +69,23 @@ def feed(request):
     contexto={
         'form':form_Post,
         'perfil':perfil,
-        'posts':posts
+        'posts':posts,
+        'match':feedFilter
         }
         
     return render(request, 'feed.html', contexto)
     
 def paginaJogos(request):
     jogo = Jogos.objects.all()
+    posts = UsrPosts.objects.all()
     plataforma = Plataformas.objects.all()
+    ow = UsrPosts.objects.all().filter(jogo__titulo='Overwatch')
 
     contexto = {
         'jogos' : jogo,
-        'plataforma' : plataforma
+        'plataforma' : plataforma,
+        'posts':posts,
+        'ow':ow
     }
     return render(request, 'jogos.html', contexto)
 
@@ -78,21 +93,28 @@ def cadastro(request):
     formUser = UsrRegistroForm(request.POST or None)
     formPerfil = UsrPerfilForm(request.POST or None)
     formPerfil2 = UsrPerfilForm2(request.POST or None)
+    msg= ''
 
 
     if request.method == 'POST':
         formUser = UsrRegistroForm(request.POST)
         formPerfil = UsrPerfilForm(request.POST)  
         formPerfil2 = UsrPerfilForm2(request.POST)  
-        form.fields["icon"].queryset = UsrIcon.objects.all() 
         
         if formUser.is_valid() and formPerfil.is_valid() and formPerfil2.is_valid():
             usuario = formUser.save()
             perfil = formPerfil.save(commit=False)
+            perfil2 = formPerfil2.save(commit=False)
             perfil.usuario = usuario
+            perfil2.usuario = usuario
             perfil.save()
-            username = formUser.cleaned_data.get('username')
-            senha = formUser.cleaned_data.get('password1')
+            perfil2.save()
+            msg = 'Conta criada com sucesso'
+            username = perfil.cleaned_data.get('username')
+            senha = perfil.cleaned_data.get('password1')
+            discord =  perfil.cleaned_data.get('discord')
+            whatsapp =  perfil.cleaned_data.get('whatsapp')
+            facebook =  perfil.cleaned_data.get('facebook')
             usuario = authenticate(username=username, password=senha)
             return redirect('home')
         
@@ -105,7 +127,8 @@ def cadastro(request):
     contexto={
         'form1':formUser,
         'form2':formPerfil,
-        'form3':formPerfil2
+        'form3':formPerfil2,
+        'msg':msg
     }
 
     return render(request, 'cadastro.html', contexto)
