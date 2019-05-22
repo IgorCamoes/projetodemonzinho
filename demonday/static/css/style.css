@@ -175,7 +175,7 @@ section .perfil, section .index, section .feed, section .paginaJogos{
     align-items: center;
     margin: 20px 6.66% 20px 0;
     border-radius: 10px;
-    background-color: rgb(201, 201, 201);
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* Footer */
@@ -304,7 +304,6 @@ aside .index{
     display: flex;
     width: 90%;
     height: 90%;
-    background-color: magenta;
     justify-content: space-around;
     align-items: center;
 }
@@ -335,13 +334,15 @@ aside .perfil div:first-child{
 
 aside .perfil div:first-child div{
     width: 100px;
-    height: 175px;
+    height: 100px;
     border-radius: 100%;
+    background-color: #F5F5F5;
+    overflow: hidden;
 }
 
 aside .perfil div:first-child div img{
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     
 }
 
@@ -363,19 +364,39 @@ aside .perfil div:last-child div:first-child h3{
     margin: 5% 0;
 }
 
-aside .perfil div:last-child div:nth-child(2){
+aside .perfil div:last-child div:nth-child(3){
     width: 100%;
     margin-bottom: 15%;
+    background-color: #ecf0f1;
+    border-radius: 10px;
+}
+
+aside .perfil div:last-child div:nth-child(3) p{
+    text-align: center;
+    font-style: italic;
+    color: darkslategrey;
 }
 
 aside .perfil div:last-child div:last-child{
     width: 100%;
+    height: 33%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
 }
 
-aside .perfil div:last-child div:last-child p{
-    text-align: center;
-    font-style: italic;
-    color: darkslategrey;
+aside .perfil div:last-child div:last-child p, aside .perfil div:last-child div:last-child a{
+    margin: 0;
+    text-decoration: none;
+    color: black;
+}
+
+.opsLogin > div{
+    width: 60%;
+    height: 60%;
+    background-color: #ecf0f1;
+    border-radius: 10px;
 }
 
 /* ======== CADASTRO LOGIN ======== */
@@ -509,13 +530,21 @@ article > div{
 }
 
 .cadascont .iconSelect{
-    width: 15px;
+    width: 10px;
 }
 
 .cadastro .dispDiaSelect{
     width: 100px;
 }
 
+.iconeForm{
+    width: 50px;
+}
+
+.capaForm{
+    width: 70px;
+    height: 100px;
+}
 
 /* ======== JOGOS ======== */
 
@@ -756,9 +785,9 @@ section .feed #navTabArea #navTab button.active{
 section .feed .tabContent{
     animation: fadeEffect .5s;
     display: none;
-    flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 @keyframes fadeEffect {
@@ -766,8 +795,38 @@ section .feed .tabContent{
     to {opacity: 1;}
 }
 
-section .postsTitulo{
-    width: 90%;
+/* Estilo das divs de post */
+
+.postsTitulo{
+    width: 100%;
     border: 1px solid slateblue;
     border-radius: 10px;
+    display: flex;
+    text-align: justify;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color:rgb(201, 201, 201);
+}
+
+.postsTitulo h4{
+    width: 75%;
+    margin: 0;
+}
+
+.postCapaJogo{
+    width: 40px;
+    height: 60px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.postCapaJogo > img{
+    width: 40px;
+    height: 60px;
+}
+
+.postsConteudo{
+    height: 0;
+    overflow: hidden;
 }

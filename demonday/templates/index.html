@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="BannerImg">
-
+            
         </div>
     </div>
     
@@ -24,9 +24,9 @@
     <div class="index">
         <div class="aIndexCont">
             {% for jogos in jogos %}
-                <div>
-                        <div><img src="{{ jogos.capa.url }}" alt=""></div>
-                </div>
+            <div>
+                <div><img src="{{ jogos.capa.url }}" alt=""></div>
+            </div>
             {% endfor %}
         </div>
         
@@ -36,18 +36,21 @@
 
 <section>
     <div class="index">
-        <div class="sIndexCont">
-            <p>.</p>
-            <p>.</p>
-            <p>.<div class=""></div></p>
+        <div class="postsIndex">
+            {% for post in posts %}
+            <div class="postsTitulo">
+                <div class="postCapaJogo"><img src="{{ post.jogo.capa.url }}" alt=""></div> <h4>{{ post.titulo }} - {{ post.plataforma }}</h4>
+                <div class="postsConteudo">
+                    <p> - {{ post.plataforma }}</p>
+                    
+                    <p>{{ post.comentario }}</p> - <a href="#">{{ post.usuario }}</a>
+                </div>
+            </div>
+            {% endfor %}    
         </div>
     </div>
     
-    <div class="postsIndex">
-        
-        
-        
-    </div>
+    
     
     
 </section>

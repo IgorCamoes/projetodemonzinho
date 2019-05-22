@@ -9,7 +9,7 @@
         <div class="top">
             <div class="userInfo">
                 <div class="userImage">
-                    <img src="{% static 'Images/icons8-tipo-de-pele-usuária-5-96.png' %}"  alt="Imagem do perfil">
+                    <img src="{{ user.perfil.icon.iconOptions.url }}"  alt="Imagem do perfil">
                 </div>
                 <div >
                     <h4>{{ user.get_username }}</h4>
@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="newPost">
-            <form action="" method="post">
+            <form action="" method="POST">
                 {% csrf_token %}
 
                 {{form.as_p}}
@@ -70,19 +70,18 @@
             Todos
         </div>
         <div class="tabContent" id="tabMatchPosts">
+            
             {% for post in posts %}
             <div class="postsTitulo">
-                <p>{{ post.titulo }} - {{ post.jogo }}</p>
+                <div class="postCapaJogo"><img src="{{ post.jogo.capa.url }}" alt=""></div> <h4>{{ post.titulo }} - {{ post.plataforma }}</h4>
                 <div class="postsConteudo">
-                    <div class="postCapa">
-                    <img src="{{ post.jogo.capa.url }}" alt="">
-                </div>
                 <p> - {{ post.plataforma }}</p>
-                
-                    <p>{{ post.comentario }}</p> - <a href="#">{{ post.usuario }}</a>
+
+                <p>{{ post.comentario }}</p> - <a href="#">{{ post.usuario }}</a>
                 </div>
             </div>
             {% endfor %}
+
         </div>
         <div class="tabContent" id="tabMatchProfiles">
             Perfis

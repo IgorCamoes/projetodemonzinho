@@ -1,10 +1,22 @@
 from django import forms
 from django.contrib.auth.models import User
+from django.forms.widgets import CheckboxSelectMultiple
 from demonday.models import Perfil, UsrPosts, DiasDisponiveis, UsrIcon, Jogos
 from django.contrib.auth.forms import UserCreationForm
+from django.utils.safestring import mark_safe
 from demonday.select_time_widget import SelectTimeWidget
 from multiselectfield import MultiSelectField
 
+
+class FieldComIcone(forms.ModelChoiceField):
+
+    def label_from_instance(self, obj):
+        return mark_safe("<img class='iconeForm' src='%s'/>" % obj.iconOptions.url)
+
+class FieldComFoto(forms.ModelChoiceField):
+
+    def label_from_instance(self, obj):
+        return mark_safe("<img class='capaForm' src='%s'/>" % obj.capa.url)
 
 class UsrRegistroForm(UserCreationForm):
     class Meta:
@@ -12,7 +24,6 @@ class UsrRegistroForm(UserCreationForm):
         fields = ['username', 'password1', 'password2']
 
 class UsrPerfilForm(forms.ModelForm):
-
     class Meta:
         model = Perfil
         
@@ -30,22 +41,23 @@ class UsrPerfilForm(forms.ModelForm):
             'bio':forms.Textarea(attrs={'placeholder':'Escreva aqui um pouco sobre como você é quando está jogando online... Um player mais casual? Ou talvez alguém atras do competitivo?'}),
         }
 
+        
+
     def save(self, commit=True):
         usuario = super().save(commit=False)
 
         usuario.nomeR = self.cleaned_data['nomeR']
         usuario.bio = self.cleaned_data['bio']
-        usuario.facebook = self.cleaned_data['facebook']
-        usuario.whatsapp = self.cleaned_data['whatsapp']
 
         if commit:
             usuario.save()
         return usuario
 
 class UsrPerfilForm2(forms.ModelForm):
+
     class Meta:
 
-        jogos = Jogos.objects.all().values('titulo','plataformas')
+        # jogos = Jogos.objects.all().values('titulo','plataformas')
         dias = DiasDisponiveis.objects.all()
         model = Perfil
         
@@ -58,16 +70,20 @@ class UsrPerfilForm2(forms.ModelForm):
             'fimHora':'Até',
             'icon':'Avatar',
         }
+
+        icon = FieldComIcone(widget=forms.RadioSelect, queryset=UsrIcon.objects.all())
+        jogos = FieldComFoto(widget=forms.CheckboxSelectMultiple, queryset=Jogos.objects.all())
+
         # dispDia = (widget=forms.Select(attrs={'class':'dispDiaSelect'}), choices=DiasDisponiveis)
-        jogos = MultiSelectField(choices=jogos),
+        # jogos = MultiSelectField(choices=jogos),
 
 
         widgets = {
-            # 'jogos':MultiSelectField(choices=jogos),
             'iniHora':SelectTimeWidget(minute_step=5, use_seconds=False),
             'fimHora':SelectTimeWidget(minute_step=5, use_seconds=False),
             'dispDia':forms.Select(attrs={'class':'dispDiaSelect'}, choices=dias),
             'icon':forms.RadioSelect(attrs={'class':'iconSelect'})
+
         }
 
 

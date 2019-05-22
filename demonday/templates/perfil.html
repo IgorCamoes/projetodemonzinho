@@ -3,32 +3,53 @@
 {% load staticfiles %}
 
 {% block content %}
-
+{% if user.is_authenticated %}
+    
 <aside>
-    <div class="perfil">
-        <div> 
+        <div class="perfil">
+            <div> 
+                <div>
+                    <img src="{{ user.perfil.icon.iconOptions.url }}" alt="">
+                </div>
+            </div>
+    
             <div>
-                <img src="https://conexaofreelancer.com.br/wp-content/uploads/2018/06/Pessoa.png" alt="">
+                <div>
+                    <h3>{{ user.get_username }}</h3>
+                </div>
+                <div>
+                    <h4>{{ user.perfil.nomeR }}</h4>
+                </div>
+                <div>
+                    <p>{{ user.perfil.bio }}</p>
+                </div>
+    
+                <div class="perfilContato">
+                        {% if user.perfil.discord != '' %}
+                        <p>Discord: {{ user.perfil.discord }}</p>
+                    {% endif %}
+        
+                    {% if user.perfil.whatsapp != '' %}
+                        <p>Whatsapp: {{ user.perfil.whatsapp }}</p>
+                    {% endif %}
+        
+                    {% if user.perfil.facebook != '' %}
+                        <p>Facebook: <a href="https://www.facebook.com/{{ user.perfil.facebook }}">{{ user.perfil.facebook }}</a></p>
+                    {% endif %}
+                </div>
             </div>
         </div>
-
+        {% include "footer.html" %}
+    </aside>
+    
+    <section>
+        <div class="perfil"></div>
+    </section>
+{% else %}
+    <article class="opsLogin">
         <div>
-            <div>
-                <h3>Nickname</h3>
-            </div>
-            <div>
-                <h4>Nome Real</h4>
-            </div>
-            <div>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad saepe et itaque accusantium magni molestias consequuntur illum totam illo iste vel similique ea quos, dolor omnis? Velit voluptatum omnis sed?</p>
-            </div>
+            <h2>Ops, você tem que realizar o <a href="{% url 'loginn' %}">Login</a> para ver essa página</h2>
         </div>
-    </div>
-    {% include "footer.html" %}
-</aside>
-
-<section>
-    <div class="perfil"></div>
-</section>
-
+    </article>
+{% endif %}
 {% endblock %}
