@@ -206,24 +206,6 @@ footer .footer div:first-child{
     
 }
 
-footer .footer div:nth-child(2) {
-    width: 57%;
-    height: 30%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-}
-
-footer .footer div:nth-child(2) button {
-    background-color: fuchsia;
-    color: white;
-    border: none;
-    width: 120px ;
-    height: 30px ;
-    letter-spacing: 3px;
-    border-radius: 15px;
-}
-
 footer .footer div:last-child {
     display: flex;
     width: 100%;
@@ -821,6 +803,32 @@ section .feed .tabContent{
 }
 
 .postsConteudo{
-    height: 0;
-    overflow: hidden;
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
 }
+
+
+.postsTitulo {
+    background-color: #F5F5F5;
+    color: black;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 15px;
+  }
+
+  .postAtivo, .postsTitulo:hover {
+    background-color: #555;
+    color:white;
+  }
+
+  .postsTitulo:after {
+    color: white;
+    font-weight: bold;
+    margin-left: 5px;
+  }

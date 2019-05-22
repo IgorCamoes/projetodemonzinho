@@ -27,7 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='home'),
     path('perfil', views.perfil, name='perfil'),
-    url(r'perfil/(?P<usuario>[a-zA-Z0-9]+)$', views.pega_o_user, name='usuario'),
+    url(r'perfil/(?P<username>[a-zA-Z0-9]+)$', views.pega_o_user, name='usuario'),
     path('jogos/', views.paginaJogos, name='jogos'),
     path('login/', LoginView.as_view(template_name='login.html'), name='loginn'),
     path('cadastro/', views.cadastro, name='cadastro'),

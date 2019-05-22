@@ -14,9 +14,9 @@
                 <div >
                     <h4>{{ user.get_username }}</h4>
                     {% for p in perfil %}
-                        {% if p.get_username == user.get_username %}
+                        {% if p.username == user.username %}
                             
-                            <h4>{{ p.nomeR }} e {{ p.get_username }}</h4>
+                            <h4>{{ p.perfil.nomeR }} e {{ p.get_username }}</h4>
                             
                         {% endif %}
                     {% endfor %}
@@ -67,7 +67,16 @@
         </div>
         
         <div class="tabContent" id="tabAllPosts">
-            Todos
+                {% for post in posts %}
+                <div class="postsTitulo">
+                    <div class="postCapaJogo"><img src="{{ post.jogo.capa.url }}" alt=""></div> <h4>{{ post.titulo }} - {{ post.plataforma }}</h4>
+                    <div class="postsConteudo">
+                    <p> - {{ post.plataforma }}</p>
+    
+                    <p>{{ post.comentario }}</p> - <a href="#">{{ post.usuario }}</a>
+                    </div>
+                </div>
+                {% endfor %}
         </div>
         <div class="tabContent" id="tabMatchPosts">
             

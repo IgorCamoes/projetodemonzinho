@@ -43,7 +43,18 @@
     </aside>
     
     <section>
-        <div class="perfil"></div>
+        <div class="perfil">
+                {% for post in posts %}
+                {% if post.usuario == user.get_username %}
+                <div class="postsTitulo">
+                    <div class="postCapaJogo"><img src="{{ post.jogo.capa.url }}" alt=""></div> <h4>{{ post.titulo }} - {{ post.plataforma }}</h4>
+                    <div class="postsConteudo">    
+                    <p>{{ post.comentario }}</p> - <a href="#">{{ post.usuario }}</a>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+        </div>
     </section>
 {% else %}
     <article class="opsLogin">

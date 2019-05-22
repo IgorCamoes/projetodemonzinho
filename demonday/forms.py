@@ -22,7 +22,7 @@ class UsrRegistroForm(UserCreationForm):
         fields = ['username', 'password1', 'password2']
 
 class UsrPerfilForm(forms.ModelForm):
-    icon = FieldComIcone(widget=forms.RadioSelect, queryset=UsrIcon.objects.all())
+    icon = FieldComIcone(widget=forms.RadioSelect, queryset=UsrIcon.objects.all(), label='Avatar')
     jogos = FieldComFoto(widget=forms.CheckboxSelectMultiple, queryset=Jogos.objects.all())
     class Meta:
         model = Perfil
@@ -35,7 +35,6 @@ class UsrPerfilForm(forms.ModelForm):
             'dispDia':'Dias disponíveis',
             'iniHora':'Das',
             'fimHora':'Até',
-            'icon':'Avatar',
             'bio':'Sobre você',
             'discord':'Discord',
             'whatsapp':'WhatsApp',
