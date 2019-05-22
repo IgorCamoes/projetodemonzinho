@@ -19,16 +19,18 @@ def index(request):
 
 def perfil(request):
     perfil = Perfil.objects.all()
+    posts = UsrPosts.objects.all()
     
     contexto={
-        'perfil':perfil
+        'perfil':perfil,
+        'post':posts
     }
 
     return render(request, 'perfil.html', contexto)
 
-def pega_o_user(request, usuario):
-    usuario = User.objects.get(usuario=username)
-    return render(request, 'user.html', {"usuario":usuario})
+def pega_o_user(request, username):
+    user = User.objects.get(username=username)
+    return render(request, 'user.html', {"usuario":user})
     
 def feed(request):
     perfil = Perfil.objects.all()
@@ -44,9 +46,9 @@ def feed(request):
             novoform_Post = form_Post.save(commit=False)
             novoform_Post.usuario = request.user
             novoform_Post.save()
-            titulo = novoform_Post.cleaned_data.get('titulo')
-            comentario = novoform_Post.cleaned_data.get('comentario')
-            horario = novoform_Post.cleaned_data.get('horario')
+            titulo = form_Post.cleaned_data.get('titulo')
+            comentario = form_Post.cleaned_data.get('comentario')
+            horario = form_Post.cleaned_data.get('horario')
             
         
         else:

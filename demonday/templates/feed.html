@@ -61,7 +61,16 @@
         </div>
         
         <div class="tabContent" id="tabAllPosts">
-            Todos
+                {% for post in posts %}
+                <div class="postsTitulo">
+                    <div class="postCapaJogo"><img src="{{ post.jogo.capa.url }}" alt=""></div> <h4>{{ post.titulo }} - {{ post.plataforma }}</h4>
+                    <div class="postsConteudo">
+                    <p> - {{ post.plataforma }}</p>
+    
+                    <p>{{ post.comentario }}</p> - <a href="#">{{ post.usuario }}</a>
+                    </div>
+                </div>
+                {% endfor %}
         </div>
         <div class="tabContent" id="tabMatchPosts">
             

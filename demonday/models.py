@@ -9,17 +9,17 @@ from multiselectfield import MultiSelectField
 
 class Plataformas(models.Model):
     platOptions = [
-        ('p4', 'Playstation 4'),
-        ('p3', 'Playstation 3'),
-        ('xo', 'Xbox One'),
-        ('x3', 'Xbox 360'),
-        ('pc', 'PC'),
-        ('mo', 'Mobile'),
-        ('ns', 'Nintendo Switch'),
-        ('nd', 'Nintendo 3DS')
+        ('PS4', 'Playstation 4'),
+        ('PS3', 'Playstation 3'),
+        ('XONE', 'Xbox One'),
+        ('X360', 'Xbox 360'),
+        ('PC', 'PC'),
+        ('MOBILE', 'Mobile'),
+        ('NSwitch', 'Nintendo Switch'),
+        ('NDS', 'Nintendo 3DS')
     ]
 
-    plataforma = models.CharField(max_length=2, choices=platOptions, default='Plataforma')
+    plataforma = models.CharField(max_length=6, choices=platOptions, default='Plataforma')
     
     def __str__(self):
         return self.plataforma
