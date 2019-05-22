@@ -1,3 +1,4 @@
+from django import views
 from django.shortcuts import render, redirect
 from demonday.models import Jogos, Plataformas, Perfil, UsrIcon, UsrPosts
 from demonday.forms import UsrPerfilForm, UsrRegistroForm, UsrPostsForm
@@ -8,26 +9,53 @@ from django.contrib.auth.models import User
 
 def index(request):
     jogo = Jogos.objects.all()
-    return render(request, 'index.html', {'jogos':jogo})
-
-def perfil(request):
-    return render(request, 'perfil.html')
-    
-def feed(request):
-    formPost = UsrPostsForm(request.POST or None)
-    perfil = Perfil.objects.all()
     posts = UsrPosts.objects.all()
 
-    if request.method == 'POST':
-        formPost = formPost(request.POST)
+    contexto={
+        'jogos':jogo,
+        'posts':posts
+    }
+    return render(request, 'index.html', contexto)
 
-        if formPost.is_valid():
-            post = formPost.save()
-            titulo = formPost.cleaned_data.get('titulo')
-            comentario = formPost.cleaned_data.get('comentario')
+def perfil(request):
+    perfil = Perfil.objects.all()
+    
+    contexto={
+        'perfil':perfil
+    }
+
+    return render(request, 'perfil.html', contexto)
+
+def pega_o_user(request, usuario):
+    usuario = User.objects.get(usuario=username)
+    return render(request, 'user.html', {"usuario":usuario})
+    
+def feed(request):
+    perfil = Perfil.objects.all()
+    posts = UsrPosts.objects.all()
+    form_Post = UsrPostsForm(request.POST or None)
+    
+
+    if request.method == 'POST':
+        form_Post = UsrPostsForm(request.POST)
+
+        if form_Post.is_valid():
+
+            novoform_Post = form_Post.save(commit=False)
+            novoform_Post.usuario = request.user
+            novoform_Post.save()
+            titulo = novoform_Post.cleaned_data.get('titulo')
+            comentario = novoform_Post.cleaned_data.get('comentario')
+            horario = novoform_Post.cleaned_data.get('horario')
+            
+        
+        else:
+            form_Post = UsrPostsForm()
+
+            
             
     contexto={
-        'form':formPost,
+        'form':form_Post,
         'perfil':perfil,
         'posts':posts
         }

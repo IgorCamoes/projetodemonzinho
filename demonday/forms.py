@@ -1,8 +1,20 @@
 from django import forms
 from django.contrib.auth.models import User
-from demonday.models import Perfil, UsrPosts, DiasDisponiveis, UsrIcon
+from django.forms.widgets import CheckboxSelectMultiple
+from demonday.models import Perfil, UsrPosts, DiasDisponiveis, UsrIcon, Jogos
 from django.contrib.auth.forms import UserCreationForm
+from django.utils.safestring import mark_safe
 from demonday.select_time_widget import SelectTimeWidget
+
+class FieldComIcone(forms.ModelChoiceField):
+
+    def label_from_instance(self, obj):
+        return mark_safe("<img class='iconeForm' src='%s'/>" % obj.iconOptions.url)
+
+class FieldComFoto(forms.ModelChoiceField):
+
+    def label_from_instance(self, obj):
+        return mark_safe("<img class='capaForm' src='%s'/>" % obj.capa.url)
 
 class UsrRegistroForm(UserCreationForm):
     class Meta:
@@ -10,9 +22,8 @@ class UsrRegistroForm(UserCreationForm):
         fields = ['username', 'password1', 'password2']
 
 class UsrPerfilForm(forms.ModelForm):
-
-    icon=forms.ModelChoiceField(UsrIcon.objects.all(), widget=forms.RadioSelect(attrs={'class':'iconSelect'}))
-
+    icon = FieldComIcone(widget=forms.RadioSelect, queryset=UsrIcon.objects.all())
+    jogos = FieldComFoto(widget=forms.CheckboxSelectMultiple, queryset=Jogos.objects.all())
     class Meta:
         model = Perfil
         
@@ -36,16 +47,16 @@ class UsrPerfilForm(forms.ModelForm):
             'fimHora':SelectTimeWidget(minute_step=5, use_seconds=False),
             'bio':forms.Textarea(attrs={'placeholder':'Escreva aqui um pouco sobre como você é quando está jogando online... Um player mais casual? Ou talvez alguém atras do competitivo?'}),
             'dispDia':forms.Select(attrs={'class':'dispDiaSelect'}, choices=DiasDisponiveis.diasOptions),
-            'icon':forms.RadioSelect(attrs={'class':'iconSelect'})
+            'icon':forms.RadioSelect(attrs={'class':'iconSelect'}),
         }
+
+        
 
     def save(self, commit=True):
         usuario = super().save(commit=False)
 
         usuario.nomeR = self.cleaned_data['nomeR']
         usuario.bio = self.cleaned_data['bio']
-        usuario.facebook = self.cleaned_data['facebook']
-        usuario.whatsapp = self.cleaned_data['whatsapp']
 
         if commit:
             usuario.save()

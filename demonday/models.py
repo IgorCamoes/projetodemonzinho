@@ -54,6 +54,12 @@ class DiasDisponiveis(models.Model):
 
     dispDia = models.CharField(max_length=2, choices=diasOptions)
     
+    def salvaDia(self):
+        dia = []
+        for dias in diasOptions:
+            dia.append({dias[1]})
+        return dia
+
     def __str__(self):
         return self.dispDia
 
@@ -64,7 +70,7 @@ class Perfil(models.Model):
     dispDia = models.ManyToManyField(DiasDisponiveis, db_table=None)
     iniHora = models.TimeField(blank=True, default=0)
     fimHora = models.TimeField(blank=True, default=0)
-    icon = models.ForeignKey(UsrIcon, on_delete=models.CASCADE)
+    icon = models.ForeignKey(UsrIcon, on_delete=models.CASCADE, default=None)
     bio = models.TextField(max_length=300)
     discord = models.CharField(max_length=50, blank=True)
     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,11}$', message="Numero de celular deve conter apenas números.")
@@ -80,12 +86,13 @@ class Perfil(models.Model):
         return self.usuario.username
 
 class UsrPosts(models.Model):
-    usuario = models.OneToOneField(User, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     titulo = models.CharField(max_length=70)
-    jogo = models.ForeignKey(Jogos, on_delete=models.CASCADE)
+    jogo = models.ForeignKey(Jogos, null=True, on_delete=models.CASCADE)
     plataforma = models.ForeignKey(Plataformas, on_delete=models.CASCADE)
-    horario = models.DateTimeField(default=0)
+    horario = models.TimeField(default=0, null=False)
     comentario = models.TextField(max_length=250)
 
     def __str__(self):
         return self.titulo
+    

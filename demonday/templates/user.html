@@ -1,0 +1,48 @@
+{% extends "main.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+<aside>
+    <div class="perfil">
+        <div> 
+            <div>
+                <img src="{{ usuario.perfil.icon.iconOptions.url }}" alt="">
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <h3>{{ usuario.username }}</h3>
+            </div>
+            <div>
+                <h4>{{ usuario.perfil.nomeR }}</h4>
+            </div>
+            <div>
+                <p>{{ usuario.perfil.bio }}</p>
+            </div>
+
+            <div class="perfilContato">
+                    {% if usuario.perfil.discord != '' %}
+                    <p>Discord: {{ usuario.perfil.discord }}</p>
+                {% endif %}
+    
+                {% if usuario.perfil.whatsapp != '' %}
+                    <p>Whatsapp: {{ user.perfil.whatsapp }}</p>
+                {% endif %}
+    
+                {% if usuario.perfil.facebook != '' %}
+                    <p>Facebook: <a href="https://www.facebook.com/{{ user.perfil.facebook }}">{{ user.perfil.facebook }}</a></p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% include "footer.html" %}
+</aside>
+
+<section>
+    <div class="perfil"></div>
+</section>
+
+{% endblock %}
