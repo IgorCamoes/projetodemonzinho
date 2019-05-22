@@ -35,6 +35,7 @@ def pega_o_user(request, username):
 def feed(request):
     perfil = Perfil.objects.all()
     posts = UsrPosts.objects.all()
+    feedFilter = UsrPosts.objects.prefetch_related('jogos').all()
     form_Post = UsrPostsForm(request.POST or None)
     
 
@@ -59,37 +60,44 @@ def feed(request):
     contexto={
         'form':form_Post,
         'perfil':perfil,
-        'posts':posts
+        'posts':posts,
+        'match':feedFilter
         }
         
     return render(request, 'feed.html', contexto)
     
 def paginaJogos(request):
     jogo = Jogos.objects.all()
+    posts = UsrPosts.objects.all()
     plataforma = Plataformas.objects.all()
 
     contexto = {
         'jogos' : jogo,
-        'plataforma' : plataforma
+        'plataforma' : plataforma,
+        'posts':posts
     }
     return render(request, 'jogos.html', contexto)
 
 def cadastro(request):
     formUser = UsrRegistroForm(request.POST or None)
     formPerfil = UsrPerfilForm(request.POST or None)
+    msg = ''
 
     if request.method == 'POST':
         formUser = UsrRegistroForm(request.POST)
-        formPerfil = UsrPerfilForm(request.POST)  
-        form.fields["icon"].queryset = UsrIcon.objects.all() 
+        formPerfil = UsrPerfilForm(request.POST)
         
         if formUser.is_valid() and formPerfil.is_valid():
             usuario = formUser.save()
             perfil = formPerfil.save(commit=False)
             perfil.usuario = usuario
             perfil.save()
-            username = formUser.cleaned_data.get('username')
-            senha = formUser.cleaned_data.get('password1')
+            msg = 'Conta criada com sucesso'
+            username = perfil.cleaned_data.get('username')
+            senha = perfil.cleaned_data.get('password1')
+            discord =  perfil.cleaned_data.get('discord')
+            whatsapp =  perfil.cleaned_data.get('whatsapp')
+            facebook =  perfil.cleaned_data.get('facebook')
             usuario = authenticate(username=username, password=senha)
             return redirect('home')
         
@@ -99,7 +107,8 @@ def cadastro(request):
 
     contexto={
         'form1':formUser,
-        'form2':formPerfil
+        'form2':formPerfil,
+        'msg':msg
     }
 
     return render(request, 'cadastro.html', contexto)

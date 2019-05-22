@@ -76,17 +76,12 @@ class Perfil(models.Model):
     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,11}$', message="Numero de celular deve conter apenas números.")
     whatsapp = models.CharField(validators=[phone_regex], max_length=11, blank=True)
     facebook = models.CharField(max_length=50, blank=True)
- 
-
-    def clean(self):
-        if not (self.discord or self.whatsapp or self.facebook):
-            raise ValidationError("Você precisa de pelo menos um meio de contato preenchido!")
 
     def __str__(self):
         return self.usuario.username
 
 class UsrPosts(models.Model):
-    usuario = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     titulo = models.CharField(max_length=70)
     jogo = models.ForeignKey(Jogos, null=True, on_delete=models.CASCADE)
     plataforma = models.ForeignKey(Plataformas, on_delete=models.CASCADE)

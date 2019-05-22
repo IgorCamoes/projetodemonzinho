@@ -21,13 +21,13 @@ class UsrRegistroForm(UserCreationForm):
         model = User
         fields = ['username', 'password1', 'password2']
 
-class UsrPerfilForm(forms.ModelForm):
+class UsrPerfilForm(UserCreationForm):
     icon = FieldComIcone(widget=forms.RadioSelect, queryset=UsrIcon.objects.all(), label='Avatar')
     jogos = FieldComFoto(widget=forms.CheckboxSelectMultiple, queryset=Jogos.objects.all())
     class Meta:
         model = Perfil
         
-        fields = ['nomeR', 'jogos', 'dispDia', 'iniHora', 'fimHora', 'icon', 'bio', 'discord', 'whatsapp', 'facebook']
+        fields = ['nomeR', 'jogos', 'icon', 'bio', 'discord', 'whatsapp', 'facebook']
         
         labels = {
             'nomeR':'Nome Real (opcional)',
@@ -49,6 +49,9 @@ class UsrPerfilForm(forms.ModelForm):
             'icon':forms.RadioSelect(attrs={'class':'iconSelect'}),
         }
 
+    def clean(self):
+        if not self.discord or self.whatsapp or self.facebook:
+            raise ValidationError("Você precisa de pelo menos um meio de contato preenchido!")
         
 
     def save(self, commit=True):

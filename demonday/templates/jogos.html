@@ -11,8 +11,6 @@
             <div>
                 <div>
                     <img src="{{ jogos.capa.url }}" alt="">
-
-                    <div><h5>{{ jogos.titulo }}</h5></div>
                 </div>
             </div>
             {% endfor %}
@@ -23,8 +21,32 @@
 
 <section>
     <div class="paginaJogos">
-        <div>
-        </div>        
+        {% for post in posts %}
+        <div class="postsTitulo">
+            <div class="postsHeader">
+                <div class="postCapaJogo">
+                    <img src="{{ post.jogo.capa.url }}" alt="">
+                </div> 
+                <h4>{{ post.titulo }} - {{ post.plataforma }}</h4>
+                <div class="postButtonArea">
+                    <div class="postButton">
+                        <span class="spanVertical1"></span>
+                        <span class="spanHorizontal1"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="postsConteudo">
+                <p>{{ post.jogo }} - {{ post.plataforma }}</p>
+                <div class="comentarioPost">
+                    <p>{{ post.comentario }}</p>
+                </div>
+                <div class="atalhoPerfilPost">
+                    <p>Postado por: </p>
+                    <a href="#">{{ post.usuario }}</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}        
     </div>
 </section>
 {% endblock %}

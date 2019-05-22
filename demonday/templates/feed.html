@@ -13,13 +13,8 @@
                 </div>
                 <div >
                     <h4>{{ user.get_username }}</h4>
-                    {% for p in perfil %}
-                        {% if p.username == user.username %}
-                            
-                            <h4>{{ p.perfil.nomeR }} e {{ p.get_username }}</h4>
-                            
-                        {% endif %}
-                    {% endfor %}
+                    
+                    <h5>{{ user.perfil.nomeR }}</h5>
                 </div>
             </div>
             <div class="newPostButtonArea">
@@ -68,19 +63,19 @@
         
         <div class="tabContent" id="tabAllPosts">
                 {% for post in posts %}
-                <div class="postsTitulo">
-                    <div class="postCapaJogo"><img src="{{ post.jogo.capa.url }}" alt=""></div> <h4>{{ post.titulo }} - {{ post.plataforma }}</h4>
-                    <div class="postsConteudo">
-                    <p> - {{ post.plataforma }}</p>
-    
-                    <p>{{ post.comentario }}</p> - <a href="#">{{ post.usuario }}</a>
-                    </div>
+            <div class="postsTitulo">
+                <div class="postCapaJogo"><img src="{{ post.jogo.capa.url }}" alt=""></div> <h4>{{ post.titulo }} - {{ post.plataforma }}</h4>
+                <div class="postsConteudo">
+                <p> - {{ post.plataforma }}</p>
+
+                <p>{{ post.comentario }}</p> - <a href="#">{{ post.usuario }}</a>
                 </div>
-                {% endfor %}
+            </div>
+            {% endfor %}
         </div>
         <div class="tabContent" id="tabMatchPosts">
             
-            {% for post in posts %}
+            {% for post in feedFilter %}            
             <div class="postsTitulo">
                 <div class="postCapaJogo"><img src="{{ post.jogo.capa.url }}" alt=""></div> <h4>{{ post.titulo }} - {{ post.plataforma }}</h4>
                 <div class="postsConteudo">

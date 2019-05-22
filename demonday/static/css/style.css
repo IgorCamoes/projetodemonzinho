@@ -135,6 +135,12 @@ header{
     height: 70vh;
 }
 
+header .index{
+    background-image: url('../Images/61268261_6137058486288_183235051582914560_n.png');
+    background-size: contain;
+    background-repeat: repeat-x;
+}
+
 /* Padrões do aside e section */
 
 aside{
@@ -225,18 +231,12 @@ footer .footer div:last-child {
     flex-wrap: wrap;
 }
 
-header .index{
-    background-image: url('https://images.unsplash.com/photo-1533613220915-609f661a6fe1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80');
-    background-size: cover;
-}
-
 .BannerTexto {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 40%;
     height: 100%;
-    background-color: #8e44ad;
 }
 
 .ContBanner {
@@ -245,7 +245,8 @@ header .index{
     display: flex;
     flex-direction: column;
     justify-content: center;
-
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .ContBanner h1 {
@@ -256,11 +257,13 @@ header .index{
     font-family: 'Press Start 2P', cursive;
 }
 
+.ContBanner span{
+    background-color: rgba(0, 0, 0, 0.486);
+}
+
 .BannerImg {
     width: 60%;
     display: flex;
-    background-image: url('https://images.unsplash.com/photo-1533613220915-609f661a6fe1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80');
-    background-size: cover;
 }
 
 .sIndexCont{
@@ -697,6 +700,11 @@ aside .feed .newPost{
     padding: 0 5% 0 5%;
     transition: max-height 0.5s ease-out;
     width: 90%;
+}
+
+.aIndexCont img{
+    width: 40px;
+    height: 80px;
 }
 
 /* Lista de top jogos */
