@@ -55,9 +55,11 @@ class UsrPerfilForm(forms.ModelForm):
 
 class UsrPerfilForm2(forms.ModelForm):
 
+    icon = FieldComIcone(widget=forms.RadioSelect, queryset=UsrIcon.objects.all(), label='Avatar')
+    jogos = FieldComFoto(widget=forms.CheckboxSelectMultiple, queryset=Jogos.objects.all())
+
     class Meta:
 
-        # jogos = Jogos.objects.all().values('titulo','plataformas')
         dias = DiasDisponiveis.objects.all()
         model = Perfil
         
@@ -68,22 +70,12 @@ class UsrPerfilForm2(forms.ModelForm):
             'dispDia':'Dias disponíveis',
             'iniHora':'Das',
             'fimHora':'Até',
-            'icon':'Avatar',
         }
-
-        icon = FieldComIcone(widget=forms.RadioSelect, queryset=UsrIcon.objects.all())
-        jogos = FieldComFoto(widget=forms.CheckboxSelectMultiple, queryset=Jogos.objects.all())
-
-        # dispDia = (widget=forms.Select(attrs={'class':'dispDiaSelect'}), choices=DiasDisponiveis)
-        # jogos = MultiSelectField(choices=jogos),
-
 
         widgets = {
             'iniHora':SelectTimeWidget(minute_step=5, use_seconds=False),
             'fimHora':SelectTimeWidget(minute_step=5, use_seconds=False),
-            'dispDia':forms.Select(attrs={'class':'dispDiaSelect'}, choices=dias),
-            'icon':forms.RadioSelect(attrs={'class':'iconSelect'})
-
+            'dispDia':forms.Select(attrs={'class':'dispDiaSelect'}, choices=dias)
         }
 
 

@@ -13,13 +13,7 @@
                 </div>
                 <div >
                     <h4>{{ user.get_username }}</h4>
-                    {% for p in perfil %}
-                        {% if p.get_username == user.get_username %}
-                            
-                            <h4>{{ p.nomeR }} e {{ p.get_username }}</h4>
-                            
-                        {% endif %}
-                    {% endfor %}
+                    <h5>{{ user.perfil.nomeR }}</h5>
                 </div>
             </div>
             <div class="newPostButtonArea">
@@ -73,11 +67,27 @@
             
             {% for post in posts %}
             <div class="postsTitulo">
-                <div class="postCapaJogo"><img src="{{ post.jogo.capa.url }}" alt=""></div> <h4>{{ post.titulo }} - {{ post.plataforma }}</h4>
+                <div class="postsHeader">
+                    <div class="postCapaJogo">
+                            <img src="{{ post.jogo.capa.url }}" alt="">
+                    </div> 
+                    <h4>{{ post.titulo }} - {{ post.plataforma }}</h4>
+                    <div class="postButtonArea">
+                        <div class="postButton">
+                            <span class="spanVertical1"></span>
+                            <span class="spanHorizontal1"></span>
+                        </div>
+                    </div>        
+                </div>      
                 <div class="postsConteudo">
-                <p> - {{ post.plataforma }}</p>
-
-                <p>{{ post.comentario }}</p> - <a href="#">{{ post.usuario }}</a>
+                    <p>{{ post.jogo }} - {{ post.plataforma }}</p>
+                    <div class="comentarioPost">
+                        <p>{{ post.comentario }}</p>
+                    </div>
+                    <div class="atalhoPerfilPost">
+                        <p>Postado por: </p>
+                        <a href="#">{{ post.usuario }}</a>   
+                    </div>
                 </div>
             </div>
             {% endfor %}

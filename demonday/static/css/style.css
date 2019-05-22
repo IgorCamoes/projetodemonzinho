@@ -26,7 +26,7 @@ body{
     font-family: 'Rajdhani', sans-serif;
     margin: 0%;
     background-color: black;
-    background-image: url('../Images/output-onlinejpgtools.jpg');
+    background-image: url('../Images/239007.jpg');
     background-size: cover;
     background-attachment: fixed;
     margin-top: 7vh;
@@ -36,7 +36,7 @@ body{
 
 nav{
     align-items: center;
-    background-color: rgb(59, 59, 59);
+    background-color: rgb(37, 37, 37);
     display: flex;
     min-height: 7vh;
     justify-content: space-between;
@@ -105,12 +105,15 @@ nav #navResto{
 }
 
 nav #logoPM{
-    background-color: red;
-    border-radius: 100%;
+    border-radius: 4px;
     height: 40px;
     margin-right: 20px;
     overflow: hidden;
     width: 40px
+}
+
+nav #logoPM img{
+    height: 40px;
 }
 
 nav #navResto #atalhosArea{
@@ -147,11 +150,12 @@ aside{
 
 aside .perfil, aside .index, aside .feed, aside .paginaJogos{
     align-items: center;
+    color: rgb(153, 153, 153);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    background-color: rgb(97, 97, 97);
+    background-color: #8d44ad49;
     width: 90%;
     margin-top: 20px;
     border-radius: 10px 10px 0 0;
@@ -189,9 +193,10 @@ footer{
 
 footer .footer{
     border-radius: 0% 0% 10px 10px;
+    color: rgb(153, 153, 153);
     width: 90%;
     height: 30vh;
-    background-color: darkslategrey;
+    background-color: rgba(0, 0, 0, 0.8);
     display: flex;
     flex-wrap: wrap;
     margin: 2px 0 20px 0;
@@ -215,7 +220,7 @@ footer .footer div:nth-child(2) {
 }
 
 footer .footer div:nth-child(2) button {
-    background-color: fuchsia;
+    background-color: #8e44ad;
     color: white;
     border: none;
     width: 120px ;
@@ -367,8 +372,8 @@ aside .perfil div:last-child div:first-child h3{
 aside .perfil div:last-child div:nth-child(3){
     width: 100%;
     margin-bottom: 15%;
-    background-color: #ecf0f1;
-    border-radius: 10px;
+    background-color: rgb(241, 240, 255);
+    border-radius: 4px;
 }
 
 aside .perfil div:last-child div:nth-child(3) p{
@@ -382,14 +387,15 @@ aside .perfil div:last-child div:last-child{
     height: 33%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
 aside .perfil div:last-child div:last-child p, aside .perfil div:last-child div:last-child a{
     margin: 0;
     text-decoration: none;
-    color: black;
+    color: rgb(241, 240, 255);
 }
 
 .opsLogin > div{
@@ -483,13 +489,21 @@ article > div{
     width: 50px;
 }
 
-.login form{
+.login .formArea{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     width: 80%;
     height: 80%;
+}
+
+.login form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    align-items: center;
 }
 
 .cadastro{
@@ -517,6 +531,12 @@ article > div{
 .cadascont p{
     display: flex;
     flex-direction: column;
+}
+
+.login p{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
 }
 
 .cadascont .form3Area p{
@@ -638,6 +658,7 @@ aside .feed .top .userInfo{
 }
 
 aside .feed .top .userInfo .userImage{
+    background-color: rgb(189, 189, 189);
     border-radius: 100%;
     height: 100px;
     width: 100px;
@@ -652,14 +673,15 @@ aside .feed .top .userInfo .userImage img{
     height: 100px;
 }    
 
-aside .feed .top .userInfo h3{
-    font-size: 18pt;
+aside .feed .top .userInfo h4{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 16pt;
+    font-weight: 600;
     margin: 0;
 }
 
-aside .feed .top .userInfo h4{
+aside .feed .top .userInfo h5{
     font-size: 14pt;
-    font-weight: 500;
     margin: 10px 0 30px 0;
 }
 
@@ -676,7 +698,7 @@ aside .feed .top .newPostButtonArea .newPostButton{
     background-color: rgb(189, 189, 189);
     border-style: solid;
     border-width: 2px;
-    border-color: rgb(82, 82, 82);
+    border-color: #311B92;
     border-radius: 100%;
     cursor: pointer;
     display: flex;
@@ -687,7 +709,7 @@ aside .feed .top .newPostButtonArea .newPostButton{
 }
 
 aside .feed .top .newPostButtonArea .newPostButton span{
-    background-color: rgb(75, 75, 75);
+    background-color: #311B92;
     border-radius: 3px;
     height: 3px;
     width: 90%;
@@ -723,6 +745,43 @@ aside .feed .newPost{
     width: 90%;
 }
 
+aside .feed .newPost form p{
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+}
+
+aside .feed .newPost form input, select{
+    text-align: center;
+    height: 40px;
+    border-radius: 5px;
+    outline: none;
+    background-color:rgba(241, 240, 255, 0.849);
+    border: 1px solid #8e44ad;
+    transition: 0.45s;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+aside .feed .newPost form select:hover{
+    cursor: pointer;
+    background-color: #311B92;
+    color: white;
+}    
+
+aside .feed .newPost form input[type='submit']{
+    background-color: #311B92;
+    color: rgb(153, 153, 153);
+    font-weight: 900;
+    font-size: 15pt;
+    margin: 20px 0;
+    width: 100%; 
+}
+
+aside .feed .newPost form input[type='submit']:hover{
+    background-color: #8e44ad;
+    color: white;
+}
+
 /* Lista de top jogos */
 
 aside .feed .topGameList{
@@ -734,7 +793,7 @@ aside .feed .topGameList{
 }
 
 aside .feed .topGameList .tituloTopGameList{
-    border-top: 1px solid black;
+    border-top: 1px solid rgb(153, 153, 153);
     font-size: 14pt;
     font-weight: 600;
     width: 90%;
@@ -754,7 +813,7 @@ section .feed #navTabArea{
 
 section .feed #navTabArea #navTab{
     align-items: center;
-    background-color: rgb(59, 59, 59);
+    background-color: rgb(37, 37, 37);
     border-radius: 0 0 10px 0;
     display: flex;
     justify-content: space-evenly;
@@ -762,7 +821,7 @@ section .feed #navTabArea #navTab{
 }
 
 section .feed #navTabArea #navTab .tab{
-    background-color: rgb(59, 59, 59);
+    background-color: rgb(37, 37, 37);
     border: none;
     border-radius: 0 0 10px 0;
     color: rgb(226, 226, 226);
@@ -779,7 +838,7 @@ section .feed #navTabArea #navTab .divisoriaTab{
 }
 
 section .feed #navTabArea #navTab button.active{
-    color: red;
+    color: #8e44ad;
 }
 
 section .feed .tabContent{
@@ -797,36 +856,130 @@ section .feed .tabContent{
 
 /* Estilo das divs de post */
 
-.postsTitulo{
-    width: 100%;
-    border: 1px solid slateblue;
-    border-radius: 10px;
+section .feed .tabContent .postsTitulo{
+    width: 95%;
+    border: 1px solid #311B92;
+    border-radius: 4px;
     display: flex;
-    text-align: justify;
     flex-wrap: wrap;
+    text-align: justify;
     align-items: center;
     justify-content: space-between;
-    background-color:rgb(201, 201, 201);
+    background-color:rgba(241, 240, 255, 0.849);
+    padding: 5px 4%;
+    margin: 10px 0;
+ 
 }
 
-.postsTitulo h4{
-    width: 75%;
-    margin: 0;
+section .feed .tabContent .postsTitulo .postsHeader{
+    min-height: 90px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    text-align: justify;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.postCapaJogo{
-    width: 40px;
-    height: 60px;
-    border-radius: 10px;
+section .feed .tabContent .postsTitulo h4{
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 16pt;
+    font-weight: 200;
+    margin: 0 10px;
+    width: 70%;
+}
+
+section .feed .tabContent .postCapaJogo{
+    border-radius: 100%;
+    width: 90px;
+    height: 90px;
     overflow: hidden;
 }
 
-.postCapaJogo > img{
-    width: 40px;
-    height: 60px;
+section .feed .tabContent .postCapaJogo > img{
+    border-radius: 100%;
+    width: 90px;
 }
 
-.postsConteudo{
-    height: 0;
+
+section .feed .tabContent .postButtonArea{
+    align-items: center;
+    display: flex;
+    height: 50%;
+    justify-content: flex-end;
+}
+
+section .feed .tabContent .postButtonArea .postButton{
+    align-items: center;
+    background-color: rgb(189, 189, 189);
+    border-style: solid;
+    border-width: 1px;
+    border-color: #311B92;
+    border-radius: 100%;
+    cursor: pointer;
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    padding: 0;
+    width: 40px;
+}
+
+section .feed .tabContent .postButtonArea .postButton span{
+    background-color: #311B92;
+    border-radius: 3px;
+    height: 2px;
+    width: 90%;
+}
+
+section .feed .tabContent .postButtonArea .postButton .spanVertical1{
+    transform: translateX(50%) rotate(90deg);
+    transition: .50s;
+    opacity: 1;
+    z-index: 10;
+}
+
+section .feed .tabContent .postButtonArea .postButton .spanHorizontal1{
+    transform: translateX(-50%);
+}
+
+section .feed .tabContent .postButtonArea .postButton .verticalDesce1{
+    transform: translateX(50%) translateY(30px) rotate(90deg);
+    transition: .50s;
+    opacity: 0;
+    z-index: -1;
+}
+
+section .feed .tabContent .postButtonArea .active1, section .feed .tabContent .postButtonArea .postButton:hover{
+    background-color: #8e44ad;
+}
+
+section .feed .tabContent .postsConteudo{ 
+    font-size: 14pt;
+    font-weight: 600;
+    max-height: 0px;
     overflow: hidden;
+    transition: max-height 0.5s ease-out;
+    width: 100%;
+}
+
+section .feed .tabContent .postsConteudo .comentarioPost{
+    border-top: 1px solid #311B92;
+    border-bottom: 1px solid #311B92;
+    font-size: 12pt;
+    font-weight: 200;
+    width: 100%;
+}
+
+section .feed .tabContent .postsConteudo .atalhoPerfilPost{ 
+    font-size: 12pt;
+    font-weight: 200;
+    margin: 20px 0;
+}
+
+section .feed .tabContent .postsConteudo .atalhoPerfilPost a{
+    color: #311B92;
+    font-size: 14pt;
+    font-weight: 600;
+    text-decoration: none;
 }
