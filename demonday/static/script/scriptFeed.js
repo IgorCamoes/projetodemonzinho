@@ -66,7 +66,6 @@ postButton[p].onclick = abrirPost;
       navTabArea.style.top = '44px';
   }
 
-  // POST COLLAPSIBLE 
 
   let divPost = document.querySelectorAll('.postsTitulo');
   let divConteudo = document.querySelectorAll('.postsTitulo');

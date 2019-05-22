@@ -29,11 +29,11 @@
                 {% endif %}
     
                 {% if usuario.perfil.whatsapp != '' %}
-                    <p>Whatsapp: {{ user.perfil.whatsapp }}</p>
+                    <p>Whatsapp: {{ usuario.perfil.whatsapp }}</p>
                 {% endif %}
     
                 {% if usuario.perfil.facebook != '' %}
-                    <p>Facebook: <a href="https://www.facebook.com/{{ user.perfil.facebook }}">{{ user.perfil.facebook }}</a></p>
+                    <p>Facebook: <a href="https://www.facebook.com/{{ usuario.perfil.facebook }}">{{ usuario.perfil.facebook }}</a></p>
                 {% endif %}
             </div>
         </div>
@@ -42,7 +42,34 @@
 </aside>
 
 <section>
-    <div class="perfil"></div>
+    <div class="perfil">
+            {% for post in post %}            
+            <div class="postsTitulo">
+                <div class="postsHeader">
+                    <div class="postCapaJogo">
+                            <img src="{{ post.jogo.capa.url }}" alt="">
+                    </div> 
+                    <h4>{{ post.titulo }} - {{ post.plataforma }}</h4>
+                    <div class="postButtonArea">
+                        <div class="postButton">
+                            <span class="spanVertical1"></span>
+                            <span class="spanHorizontal1"></span>
+                        </div>
+                    </div>        
+                </div>      
+                <div class="postsConteudo">
+                    <p>{{ post.jogo }} - {{ post.plataforma }}</p>
+                    <div class="comentarioPost">
+                        <p>{{ post.comentario }}</p>
+                    </div>
+                    <div class="atalhoPerfilPost">
+                        <p>Postado por: </p>
+                        <a href="{% url 'perfil' %}/{{ post.usuario }}">{{ post.usuario }}</a>   
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+    </div>
 </section>
 
 {% endblock %}

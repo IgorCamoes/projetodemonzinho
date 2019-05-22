@@ -4,7 +4,6 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.core.validators import RegexValidator
-from multiselectfield import MultiSelectField
 
 
 class Plataformas(models.Model):
@@ -74,6 +73,8 @@ class Perfil(models.Model):
 
     def __str__(self):
         return self.usuario.username
+
+    USERNAME_FIELD = 'usuario'
 
 class UsrPosts(models.Model):
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)

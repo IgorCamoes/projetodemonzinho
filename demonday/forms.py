@@ -5,7 +5,6 @@ from demonday.models import Perfil, UsrPosts, DiasDisponiveis, UsrIcon, Jogos
 from django.contrib.auth.forms import UserCreationForm
 from django.utils.safestring import mark_safe
 from demonday.select_time_widget import SelectTimeWidget
-from multiselectfield import MultiSelectField
 
 
 class FieldComIcone(forms.ModelChoiceField):
@@ -58,17 +57,17 @@ class UsrPerfilForm(UserCreationForm):
             usuario.save()
         return usuario
 
-class UsrPerfilForm2(forms.ModelForm):
+class UsrPerfilForm2(UsrPerfilForm):
 
     icon = FieldComIcone(widget=forms.RadioSelect, queryset=UsrIcon.objects.all(), label='Avatar')
     jogos = FieldComFoto(widget=forms.CheckboxSelectMultiple, queryset=Jogos.objects.all())
 
     class Meta:
-
+        
         dias = DiasDisponiveis.objects.all()
         model = Perfil
         
-        fields = ['jogos', 'dispDia', 'iniHora', 'fimHora', 'icon',]
+        fields = ['usuario', 'jogos', 'dispDia', 'iniHora', 'fimHora', 'icon']
         
         labels = {
             'jogos':'Jogos',

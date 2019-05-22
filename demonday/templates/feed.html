@@ -3,7 +3,7 @@
 {% load staticfiles %}
 
 {% block content %}
-
+{% if user.is_authenticated %}
 <aside>
     <div class="feed">
         <div class="top">
@@ -35,14 +35,8 @@
         </div>
         <div class='topGameList'>
             <div class="tituloTopGameList">
-                <p>Jogos mais procurados:</p>
             </div>
             <div class="contentGameList">
-                <p>Jogo1</p>
-                <p>Jogo2</p>
-                <p>Jogo3</p>
-                <P>Jogo4</P>
-                <p>Jogo5</p>
             </div>
         </div>
     </div>
@@ -62,20 +56,36 @@
         </div>
         
         <div class="tabContent" id="tabAllPosts">
-                {% for post in posts %}
+                {% for post in posts %}            
             <div class="postsTitulo">
-                <div class="postCapaJogo"><img src="{{ post.jogo.capa.url }}" alt=""></div> <h4>{{ post.titulo }} - {{ post.plataforma }}</h4>
+                <div class="postsHeader">
+                    <div class="postCapaJogo">
+                            <img src="{{ post.jogo.capa.url }}" alt="">
+                    </div> 
+                    <h4>{{ post.titulo }} - {{ post.plataforma }}</h4>
+                    <div class="postButtonArea">
+                        <div class="postButton">
+                            <span class="spanVertical1"></span>
+                            <span class="spanHorizontal1"></span>
+                        </div>
+                    </div>        
+                </div>      
                 <div class="postsConteudo">
-                <p> - {{ post.plataforma }}</p>
-
-                <p>{{ post.comentario }}</p> - <a href="#">{{ post.usuario }}</a>
+                    <p>{{ post.jogo }} - {{ post.plataforma }}</p>
+                    <div class="comentarioPost">
+                        <p>{{ post.comentario }}</p>
+                    </div>
+                    <div class="atalhoPerfilPost">
+                        <p>Postado por: </p>
+                        <a href="{% url 'perfil' %}/{{ post.usuario }}">{{ post.usuario }}</a>   
+                    </div>
                 </div>
             </div>
             {% endfor %}
         </div>
         <div class="tabContent" id="tabMatchPosts">
             
-            {% for post in feedFilter %}            
+            {% for post in match %}            
             <div class="postsTitulo">
                 <div class="postsHeader">
                     <div class="postCapaJogo">
@@ -108,5 +118,13 @@
         </div>
     </div>
 </section>
+
+{% else %}
+    <article class="opsLogin">
+        <div>
+            <h2>Ops, você tem que realizar o <a href="{% url 'loginn' %}">Login</a> para ver essa página</h2>
+        </div>
+    </article>
+{% endif %}
 
 {% endblock %}
