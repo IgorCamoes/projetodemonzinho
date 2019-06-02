@@ -1,0 +1,116 @@
+article {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+article > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 100%;
+}
+
+.cadastro h4{
+    font-weight: 200;
+    font-variant: small-caps;
+    text-transform: uppercase;
+    font-size: 22pt;
+    margin: 0;
+}
+
+.cadastro input{
+    text-align: center;
+    width: 150px;
+    height: 40px;
+    border-radius: 5px;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid #8e44ad;
+    transition: 0.45s;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.cadastro input::placeholder{
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.cadastro input[type = 'text']:focus, .cadastro input[type = 'password']:focus{
+    width: 200px;
+    border-color: black;
+}
+
+.cadastro input[type='submit']:hover, .cadastro input[type='button']:hover, .cadastro select:hover{
+    cursor: pointer;
+    background-color: #311B92;
+    color: white;
+}
+
+.cadastro select{
+    text-align: center;
+    height: 40px;
+    border-radius: 5px;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid #8e44ad;
+    transition: 0.45s;
+    font-family: 'Rajdhani', sans-serif;
+    width: 50px;
+}
+
+.cadastro{
+    display: flex;
+    justify-content: center;
+    background-color: #ecf0f1;
+    border-radius: 10px;
+    width: 60%;
+    height: 95%;
+    overflow: auto;
+}
+
+.cadascont{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ecf0f1;
+}
+
+.cadascont .formArea{
+    width: 100%
+}
+
+.cadascont p{
+    display: flex;
+    flex-direction: column;
+}
+
+.cadascont .form3Area p{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.cadascont a input{
+    margin: 10px 0;
+}
+
+.cadascont .iconSelect{
+    width: 10px;
+}
+
+.cadastro .dispDiaSelect{
+    width: 100px;
+}
+
+.iconeForm{
+    width: 50px;
+}
+
+.capaForm{
+    width: 70px;
+    height: 100px;
+}

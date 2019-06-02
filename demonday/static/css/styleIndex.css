@@ -1,0 +1,126 @@
+/* Header */
+
+header{
+    width: 100%;
+    height: 70vh;
+}
+
+header .index{
+    background-image: url('../Images/61268261_6137058486288_183235051582914560_n.png');
+    background-size: contain;
+    background-repeat: repeat-x;
+}
+
+.index, .paginaJogos{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.BannerTexto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    height: 100%;
+}
+
+.ContBanner {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    text-shadow: -2px 0 #311B92, 0 2px #311B92, 2px 0 #311B92, 0 -2px #311B92;
+}
+
+.ContBanner h1 {
+    font-family: 'Press Start 2P', cursive;
+}
+
+.ContBanner h4 {
+    font-family: 'Press Start 2P', cursive;
+
+}
+
+.ContBanner span{
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    background-color: rgba(0, 0, 0, 0.486);
+}
+
+.BannerImg {
+    width: 60%;
+    display: flex;
+}
+
+.aIndexCont{
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+
+/* Elementos do aside */
+
+.aIndexCont p{
+    color: #311B92;
+}
+
+aside .index{
+    align-items: center;
+    color: rgb(153, 153, 153);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #8d44ad49;
+    width: 90%;
+    margin-top: 20px;
+    border-radius: 10px 10px 0 0;
+}
+
+aside .index{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.aIndexCont {
+    display: flex;
+    width: 90%;
+    height: 90%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.topjogoIndex {
+    width: 25px;
+    height: 59px;
+    background-color: aqua;
+}
+
+/* Elementos da section */
+
+section .index{
+    width: 91%;
+    align-items: center;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 20px 6.66% 20px 0;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+section .index .postsIndex{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+}

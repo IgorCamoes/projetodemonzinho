@@ -1,0 +1,91 @@
+.paginaJogos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Elementos do aside */
+
+aside .paginaJogos{
+    align-items: center;
+    color: rgb(153, 153, 153);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #8d44ad49;
+    width: 90%;
+    margin-top: 20px;
+    border-radius: 10px 10px 0 0;
+    height:250px;
+    min-height: 100vh;
+    overflow: auto;
+}
+
+aside .paginaJogos > div{
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin: 20px 0;
+}
+
+aside .paginaJogos div > div{
+    height: 150px;
+    width: 120px;
+}
+
+aside .paginaJogos div > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+aside .paginaJogos div div div:first-child{
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100px;
+    background-color: white;
+}
+
+aside .paginaJogos div div div:first-child img{
+    width: 100px;
+    height: 150px;
+}
+
+aside .paginaJogos div div div:first-child:hover{
+    filter: blur(1px);
+    cursor: pointer;
+}
+
+aside .paginaJogos div div > div div:last-child{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    opacity: 0;
+    color: white;
+    width: 100%;
+    text-align: center;
+}
+
+/* Elementos da section */
+
+section .paginaJogos{
+    width: 91%;
+    align-items: center;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 20px 6.66% 20px 0;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+}
+
+section .active2{
+    animation: fadeEffect .5s;
+    opacity: 1;
+}
